@@ -1,9 +1,14 @@
-site_name: Lucien-Joelle's Notebook  
-site_description: 个人学习笔记和知识管理系统
+site_name: Lucien-Joelle's Notebook
+site_description: 个人学习笔记和知识管理系统  
 site_author: Lucien-Joelle
 site_url: https://lucien-joelle.github.io/notebook
 
-# 主题配置
+# 仓库配置
+repo_url: https://github.com/lucien-joelle/notebook
+repo_name: lucien-joelle/notebook
+edit_uri: edit/main/docs/
+
+# 主题配置 - 参考IsshikiHugh项目的简洁设计
 theme:
   name: material
   language: zh
@@ -11,26 +16,12 @@ theme:
   logo: assets/logo.svg
   icon:
     repo: fontawesome/brands/github
-    edit: material/pencil
-    view: material/eye
   features:
-    - announce.dismiss
-    - content.action.edit
-    - content.action.view
-    - content.code.annotate
     - content.code.copy
     - content.code.select
-    - content.footnote.tooltips
-    - content.tabs.link
-    - content.tooltips
     - navigation.expand
-    - navigation.footer
     - navigation.indexes
     - navigation.instant
-    - navigation.instant.prefetch
-    - navigation.instant.progress
-    - navigation.path
-    - navigation.prune
     - navigation.sections
     - navigation.tabs
     - navigation.tabs.sticky
@@ -40,50 +31,54 @@ theme:
     - search.share
     - search.suggest
     - toc.follow
-    - toc.integrate
+    
   palette:
-    scheme: default
-    primary: deep purple
-    accent: purple
+    # 保持原有美丽配色
+    - scheme: default
+      primary: deep purple
+      accent: purple
+      toggle:
+        icon: material/brightness-7 
+        name: 切换到暗色模式
+    - scheme: slate
+      primary: deep purple
+      accent: purple
+      toggle:
+        icon: material/brightness-4
+        name: 切换到亮色模式
 
-# Markdown扩展
+# Markdown扩展 - 参考IsshikiHugh项目的简洁配置
 markdown_extensions:
+  - toc:
+      permalink: true
   - admonition
+  - attr_list
+  - footnotes
+  - md_in_html
+  - pymdownx.arithmatex:
+      generic: true
   - pymdownx.details
-  - pymdownx.superfences:
-      custom_fences:
-        - name: mermaid
-          class: mermaid
-          format: !!python/name:pymdownx.superfences.fence_code_format
+  - pymdownx.emoji:
+      emoji_index: !!python/name:material.extensions.emoji.twemoji
+      emoji_generator: !!python/name:material.extensions.emoji.to_svg
   - pymdownx.highlight:
       anchor_linenums: true
       line_spans: __span
       pygments_lang_class: true
   - pymdownx.inlinehilite
-  - pymdownx.snippets
-  - pymdownx.tabbed:
-      alternate_style: true
-  - pymdownx.tasklist:
-      custom_checkbox: true
-  - pymdownx.emoji
-  - def_list
-  - footnotes
-  - meta
-  - md_in_html
-  - toc:
-      permalink: true
-  - tables
-  - attr_list
-  - pymdownx.arithmatex:
-      generic: true
+  - pymdownx.superfences:
+      custom_fences:
+        - name: mermaid
+          class: mermaid
+          format: !!python/name:pymdownx.superfences.fence_code_format
 
-# 插件
+# 插件配置 - 参考IsshikiHugh项目的实用组合
 plugins:
   - search:
-      lang: 
-        - zh
-        - en
-  - tags
+      lang: zh
+  - git-revision-date-localized:
+      type: timeago
+      enable_creation_date: true
 
 # 额外的JavaScript
 extra_javascript:
@@ -96,41 +91,34 @@ extra_javascript:
 extra_css:
   - stylesheets/extra.css
 
-# 导航结构 - 基础框架，可根据需要扩展
+# 导航结构 - 参考IsshikiHugh项目的简洁架构
 nav:
-  - 首页: index.md
-  - 设计指南: 设计指南.md
-  - 学习笔记:
+  - 💠 主页: index.md
+  - 📚 技术积累:
     - 学习笔记/index.md
     - 编程语言:
       - 学习笔记/编程语言/index.md
       - Python: 学习笔记/编程语言/python.md
       - JavaScript: 学习笔记/编程语言/javascript.md
-    - 算法与数据结构:
-      - 学习笔记/算法/index.md
-  - 项目记录:
-    - 项目记录/index.md
-  - 读书笔记:
-    - 读书笔记/index.md
-  - 工具使用:
-    - 工具使用/index.md
-    - Git使用: 工具使用/git.md
+    - 算法: 学习笔记/算法/index.md
+    - 数据库: 学习笔记/数据库/index.md
+    - 网络: 学习笔记/网络/index.md
+    - 工具使用:
+      - 工具使用/index.md
+      - Git: 工具使用/git.md
+      - VS Code: 工具使用/vscode.md
+      - Docker: 工具使用/docker.md
+  - 📝 项目记录: 项目记录/index.md
+  - 📖 读书笔记: 读书笔记/index.md
+  - 📝 设计指南: 设计指南.md
 
 # 额外配置
 extra:
+  generator: false
   social:
     - icon: fontawesome/brands/github
-      link: https://github.com/Lucien-Joelle
+      link: https://github.com/lucien-joelle
       name: GitHub
-    - icon: fontawesome/solid/envelope
-      link: mailto:your-email@example.com
-      name: Email
-    - icon: fontawesome/brands/twitter
-      link: https://twitter.com/yourusername
-      name: Twitter
-  analytics:
-    provider: google
-    property: G-XXXXXXXXXX
-  generator: false
-  version:
-    provider: mike
+
+# 版权信息
+copyright: Copyright &copy; 2024 Lucien-Joelle

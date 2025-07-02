@@ -29,6 +29,13 @@ h1,
     font-weight: 600;
 }
 
+/* can make content in wider div */
+/* .md-grid {
+    margin-left: auto;
+    margin-right: auto;
+    max-width: 95%;
+} */
+
 body,
 input {
     font-family: 'LXGW WenKai Screen', 'Lexend', 'Noto Sans SC', 'Source Code Pro', -apple-system, Helvetica, Arial, sans-serif;
@@ -75,6 +82,7 @@ li {
     box-shadow: var(--md-shadow-z2);
 }
 
+/* .md-typeset img, */
 .md-typeset video {
     box-shadow: var(--md-shadow-z1);
     border-radius: 5px;
