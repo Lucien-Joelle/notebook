@@ -171,9 +171,7 @@ extra:
     - icon: fontawesome/solid/envelope
       link: mailto:your-email@example.com
       name: Email
-  version:
-    provider: mike
-    default: latest
+
   consent:
     title: Cookie 同意
     description: >-
