@@ -7,8 +7,8 @@ site_url: https://lucien-joelle.github.io/notebook
 theme:
   name: material
   language: zh
-  favicon: assets/favicon.ico
-  logo: assets/logo.png
+  favicon: assets/logo.svg
+  logo: assets/logo.svg
   icon:
     repo: fontawesome/brands/github
     edit: material/pencil
@@ -23,7 +23,6 @@ theme:
     - content.footnote.tooltips
     - content.tabs.link
     - content.tooltips
-    - header.autohide
     - navigation.expand
     - navigation.footer
     - navigation.indexes
