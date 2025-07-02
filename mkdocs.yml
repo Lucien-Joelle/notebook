@@ -7,28 +7,55 @@ site_url: https://lucien-joelle.github.io/notebook
 theme:
   name: material
   language: zh
+  favicon: assets/favicon.ico
+  logo: assets/logo.png
+  icon:
+    repo: fontawesome/brands/github
+    edit: material/pencil
+    view: material/eye
   features:
-    - navigation.tabs
-    - navigation.sections
-    - navigation.expand
-    - navigation.path
-    - navigation.top
-    - search.highlight
-    - search.suggest
-    - content.code.copy
+    - announce.dismiss
     - content.action.edit
+    - content.action.view
+    - content.code.annotate
+    - content.code.copy
+    - content.code.select
+    - content.footnote.tooltips
+    - content.tabs.link
+    - content.tooltips
+    - header.autohide
+    - navigation.expand
+    - navigation.footer
+    - navigation.indexes
+    - navigation.instant
+    - navigation.instant.prefetch
+    - navigation.instant.progress
+    - navigation.path
+    - navigation.prune
+    - navigation.sections
+    - navigation.tabs
+    - navigation.tabs.sticky
+    - navigation.top
+    - navigation.tracking
+    - search.highlight
+    - search.share
+    - search.suggest
+    - toc.follow
+    - toc.integrate
   palette:
-    # 浅色模式
-    - scheme: default
-      primary: indigo
-      accent: indigo
+    # 浅色模式 - 蓝紫色主题
+    - media: "(prefers-color-scheme: light)"
+      scheme: default
+      primary: deep purple
+      accent: purple
       toggle:
         icon: material/brightness-7
         name: 切换到深色模式
-    # 深色模式
-    - scheme: slate
-      primary: indigo
-      accent: indigo
+    # 深色模式 - 深紫色主题
+    - media: "(prefers-color-scheme: dark)"
+      scheme: slate
+      primary: deep purple
+      accent: purple
       toggle:
         icon: material/brightness-4
         name: 切换到浅色模式
@@ -80,6 +107,7 @@ plugins:
 # 额外的JavaScript
 extra_javascript:
   - javascripts/mathjax.js
+  - javascripts/custom.js
   - https://polyfill.io/v3/polyfill.min.js?features=es6
   - https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js
 
@@ -90,6 +118,7 @@ extra_css:
 # 导航结构 - 基础框架，可根据需要扩展
 nav:
   - 首页: index.md
+  - 设计指南: 设计指南.md
   - 学习笔记:
     - 学习笔记/index.md
     - 编程语言:
@@ -117,5 +146,17 @@ nav:
 extra:
   social:
     - icon: fontawesome/brands/github
-      link: https://github.com/yourusername
+      link: https://github.com/Lucien-Joelle
+      name: GitHub
+    - icon: fontawesome/solid/envelope
+      link: mailto:your-email@example.com
+      name: Email
+    - icon: fontawesome/brands/twitter
+      link: https://twitter.com/yourusername
+      name: Twitter
+  analytics:
+    provider: google
+    property: G-XXXXXXXXXX
   generator: false
+  version:
+    provider: mike
