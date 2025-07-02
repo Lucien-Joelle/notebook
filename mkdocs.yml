@@ -42,22 +42,9 @@ theme:
     - toc.follow
     - toc.integrate
   palette:
-    # 浅色模式 - 蓝紫色主题
-    - media: "(prefers-color-scheme: light)"
-      scheme: default
-      primary: deep purple
-      accent: purple
-      toggle:
-        icon: material/brightness-7
-        name: 切换到深色模式
-    # 深色模式 - 深紫色主题
-    - media: "(prefers-color-scheme: dark)"
-      scheme: slate
-      primary: deep purple
-      accent: purple
-      toggle:
-        icon: material/brightness-4
-        name: 切换到浅色模式
+    scheme: default
+    primary: deep purple
+    accent: purple
 
 # Markdown扩展
 markdown_extensions:
