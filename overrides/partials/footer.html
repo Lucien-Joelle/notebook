@@ -45,16 +45,17 @@
           <div class="md-footer-copyright__highlight">
             使用 ❤️ 和 <a href="https://squidfunk.github.io/mkdocs-material/" target="_blank" rel="noopener">Material for MkDocs</a> 构建
           </div>
-          {% if config.extra.social %}
-            <div class="md-footer-social">
-              {% for social in config.extra.social %}
-                <a href="{{ social.link }}" target="_blank" rel="noopener" title="{{ social.name or social.icon }}" class="md-footer-social__link">
-                  {% include ".icons/" ~ social.icon ~ ".svg" %}
-                </a>
-              {% endfor %}
-            </div>
-          {% endif %}
         </div>
+        
+        {% if config.extra.social %}
+          <div class="md-footer-social">
+            {% for social in config.extra.social %}
+              <a href="{{ social.link }}" target="_blank" rel="noopener" title="{{ social.name or social.icon }}" class="md-footer-social__link">
+                {% include ".icons/" ~ social.icon ~ ".svg" %}
+              </a>
+            {% endfor %}
+          </div>
+        {% endif %}
       </div>
     </div>
   </footer> 

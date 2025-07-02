@@ -161,6 +161,69 @@ li {
     --md-shadow-z3: 0 12px 24px rgba(253, 121, 168, 0.2), 0 6px 12px rgba(0, 206, 201, 0.15);
 }
 
+/* 页脚社交图标样式优化 */
+.md-footer-social {
+    display: flex;
+    gap: 0.8rem;
+    margin-top: 0.8rem;
+    justify-content: center;
+    padding: 0.5rem 0;
+}
+
+.md-footer-social__link {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    width: 1.8rem;
+    height: 1.8rem;
+    border-radius: 50%;
+    color: var(--md-footer-fg-color--light);
+    font-size: 0.9rem;
+    text-decoration: none;
+    transition: all 0.25s ease-in-out;
+    opacity: 0.8;
+    background: rgba(255, 255, 255, 0.05);
+    border: 1px solid rgba(255, 255, 255, 0.1);
+}
+
+.md-footer-social__link:hover {
+    color: var(--md-footer-fg-color);
+    opacity: 1;
+    transform: translateY(-3px) scale(1.1);
+    background: rgba(255, 255, 255, 0.15);
+    border-color: rgba(255, 255, 255, 0.3);
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
+}
+
+.md-footer-social__link svg {
+    width: 1rem;
+    height: 1rem;
+    fill: currentColor;
+}
+
+/* 页脚版权信息样式 */
+.md-footer-copyright__highlight {
+    font-size: 0.75rem;
+    opacity: 0.85;
+    margin: 0.25rem 0;
+    text-align: center;
+    line-height: 1.4;
+}
+
+.md-footer-meta__inner {
+    padding: 1rem 0;
+}
+
+.md-copyright {
+    margin-bottom: 0;
+}
+
+/* 页脚整体布局优化 */
+.md-footer-meta {
+    background: var(--md-footer-bg-color);
+    border-top: 1px solid rgba(255, 255, 255, 0.08);
+}
+
 /* 选择文本效果 */
 ::selection {
     background: rgba(253, 121, 168, 0.3);
