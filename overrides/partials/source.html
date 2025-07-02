@@ -1,0 +1,11 @@
+{% if page and page.edit_url %}
+  <a href="{{ page.edit_url }}" title="{{ lang.t('edit.link.title') }}" class="md-content__button md-icon">
+    {% include ".icons/material/pencil.svg" %}
+  </a>
+{% endif %}
+
+{% if page and page.url %}
+  <a href="{{ config.repo_url }}{{ config.edit_uri }}{{ page.file.src_path }}" title="查看页面源码" class="md-content__button md-icon">
+    {% include ".icons/material/file-code.svg" %}
+  </a>
+{% endif %} 

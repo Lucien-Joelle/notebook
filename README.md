@@ -1,166 +1,165 @@
-# 个人学习笔记框架
+# 📚 Lucien-Joelle's Notebook
 
-基于 MkDocs Material 构建的个人学习笔记和知识管理系统。
+[![Build Status](https://github.com/lucien-joelle/notebook/workflows/Deploy%20MkDocs%20Site/badge.svg)](https://github.com/lucien-joelle/notebook/actions)
+[![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg)](https://opensource.org/licenses/MIT)
+[![Made with Material for MkDocs](https://img.shields.io/badge/Material_for_MkDocs-526CFE?style=flat&logo=MaterialForMkDocs&logoColor=white)](https://squidfunk.github.io/mkdocs-material/)
 
-## 🌟 特性
+> 🌟 个人学习笔记和知识管理系统，使用 MkDocs Material 构建
 
-- 📝 **Markdown 支持** - 使用 Markdown 编写内容
-- 🔍 **全文搜索** - 快速查找笔记内容  
-- 🎨 **代码高亮** - 支持多种编程语言语法高亮
-- 📊 **图表支持** - 内置 Mermaid 图表渲染
-- 🌓 **主题切换** - 支持亮色和暗色主题
-- 📱 **响应式设计** - 适配各种设备屏幕
-- 🚀 **快速部署** - 一键部署到 GitHub Pages
-- 📖 **数学公式** - 支持 LaTeX 数学公式渲染
+## 🚀 在线访问
 
-## 🚀 快速开始
+**访问地址：** [https://lucien-joelle.github.io/notebook](https://lucien-joelle.github.io/notebook)
 
-### 环境要求
-- Python 3.7+
-- pip
+## 📋 项目特色
 
-### 安装依赖
-```bash
-# 克隆项目
-git clone https://github.com/yourusername/web_notes.git
-cd web_notes
+- ✨ **现代化设计** - 基于 Material Design 的美观界面
+- 🔍 **全文搜索** - 快速找到你需要的内容
+- 📱 **响应式布局** - 完美适配各种设备
+- 🌓 **明暗主题** - 支持明暗模式切换
+- 📊 **数学公式** - 完整的 LaTeX 数学公式支持
+- 🎨 **代码高亮** - 多语言语法高亮
+- 🔄 **自动部署** - GitHub Actions 自动构建部署
 
-# 安装依赖
-pip install -r requirements.txt
+## 📖 内容结构
+
+```
+📚 技术积累
+├── 📝 编程语言
+│   ├── Python
+│   └── JavaScript
+├── 🧮 算法
+├── 🗄️ 数据库
+├── 🌐 网络
+└── 🤖 AI
+
+🛠️ 工具使用
+├── Git
+├── VS Code
+└── Docker
+
+📋 项目记录
+📖 读书笔记
+📝 设计指南
 ```
 
-### 本地开发
+## 🛠️ 本地开发
+
+### 快速开始
+
 ```bash
+# 克隆项目
+git clone https://github.com/lucien-joelle/notebook.git
+cd notebook
+
+# 设置环境（Linux/Mac）
+chmod +x scripts/setup.sh
+./scripts/setup.sh
+
+# 或者手动设置
+python -m venv venv
+source venv/bin/activate  # Linux/Mac
+# venv\Scripts\activate    # Windows
+pip install -r requirements.txt
+
 # 启动开发服务器
 mkdocs serve
-
-# 在浏览器中访问 http://127.0.0.1:8000
+# 或使用脚本
+./scripts/serve.sh        # Linux/Mac
+scripts\serve-windows.bat # Windows
 ```
 
 ### 构建部署
+
 ```bash
-# 构建静态网站
+# 构建静态文件
 mkdocs build
 
-# 部署到 GitHub Pages
-mkdocs gh-deploy
+# 或使用脚本
+./scripts/build.sh        # Linux/Mac
+scripts\deploy-windows.bat # Windows
 ```
 
 ## 📁 项目结构
 
 ```
-web_notes/
-├── docs/                    # 文档源文件
-│   ├── index.md            # 首页
-│   ├── 学习笔记/           # 学习笔记分类
+notebook/
+├── docs/                   # 文档源文件
+│   ├── assets/            # 静态资源
+│   ├── javascripts/       # 自定义 JS
+│   ├── stylesheets/       # 自定义 CSS
+│   ├── 学习笔记/           # 学习笔记
+│   ├── 工具使用/           # 工具使用
 │   ├── 项目记录/           # 项目记录
-│   ├── 读书笔记/           # 读书笔记  
-│   ├── 工具使用/           # 工具使用指南
-│   ├── javascripts/        # 自定义 JavaScript
-│   └── stylesheets/        # 自定义 CSS
-├── mkdocs.yml              # MkDocs 配置文件
-├── requirements.txt        # Python 依赖
+│   └── 读书笔记/           # 读书笔记
+├── overrides/             # 模板覆写
+│   ├── partials/          # 部分模板
+│   └── main.html          # 主模板
+├── scripts/               # 实用脚本
+│   ├── build.sh           # 构建脚本
+│   ├── serve.sh           # 开发服务器
+│   └── setup.sh           # 环境设置
+├── templates/             # 文档模板
+├── .github/               # GitHub Actions
+├── mkdocs.yml             # MkDocs 配置
+├── requirements.txt       # Python 依赖
 └── README.md              # 项目说明
 ```
 
-## ✏️ 内容编写
+## 🎨 主要功能
 
-### 添加新页面
-1. 在 `docs/` 目录下创建 `.md` 文件
-2. 在 `mkdocs.yml` 的 `nav` 部分添加导航链接
-3. 使用 Markdown 语法编写内容
+### Markdown 扩展
 
-### 内容分类
-- **学习笔记** - 编程语言、算法、计算机基础等
-- **项目记录** - 个人项目开发过程和经验
-- **读书笔记** - 技术书籍和论文阅读心得  
-- **工具使用** - 开发工具的使用技巧和配置
+- ✅ **提示框** - 支持多种类型的提示信息
+- 📊 **表格** - 美观的表格样式
+- 🔗 **链接** - 自动新标签页打开外部链接
+- 📋 **任务列表** - 美化的复选框样式
+- 🎯 **代码块** - 行号和复制功能
+- 📈 **图表** - Mermaid 图表支持
+- 🔤 **缩写** - 自动缩写定义
 
-### Markdown 扩展功能
+### 自定义组件
 
-#### 提示框
-```markdown
-!!! note "标题"
-    这是一个提示框
+- 🎴 **卡片组件** - 美观的内容卡片
+- 🌈 **渐变效果** - 丰富的渐变色彩
+- ⚡ **加载动画** - 平滑的页面加载效果
+- 🔝 **返回顶部** - 便捷的页面导航
 
-!!! warning "警告"
-    这是一个警告提示框
-```
+## 🤝 贡献指南
 
-#### 代码块
-```markdown
-​```python
-def hello_world():
-    print("Hello, World!")
-​```
-```
-#### 数学公式
-```markdown
-行内公式：$E = mc^2$
+欢迎贡献内容和改进建议！
 
-块级公式：
-$$
-\frac{d}{dx}\left( \int_{a}^{x} f(u)\,du\right) = f(x)
-$$
-```
+### 贡献方式
 
-#### 标签页
-```markdown
-=== "标签1"
-    内容1
+1. **Fork** 本仓库
+2. 创建你的特性分支 (`git checkout -b feature/AmazingFeature`)
+3. 提交你的修改 (`git commit -m 'Add some AmazingFeature'`)
+4. 推送到分支 (`git push origin feature/AmazingFeature`)
+5. 打开一个 **Pull Request**
 
-=== "标签2"
-    内容2
-```
+### 写作规范
 
-## 🎨 自定义
-
-### 修改主题颜色
-在 `mkdocs.yml` 中修改 `theme.palette` 配置：
-
-```yaml
-theme:
-  palette:
-    primary: indigo  # 主色调
-    accent: indigo   # 强调色
-```
-
-### 添加自定义样式
-在 `docs/stylesheets/extra.css` 中添加自定义 CSS。
-
-### 添加自定义脚本
-在 `docs/javascripts/` 目录中添加 JavaScript 文件。
-
-## 📚 使用建议
-
-1. **内容组织**：按照主题分类组织内容，便于查找
-2. **命名规范**：使用清晰的文件和文件夹命名
-3. **标签使用**：为文章添加标签，方便分类和搜索
-4. **定期维护**：及时更新和完善笔记内容
-5. **版本控制**：使用 Git 管理内容版本
-
-## 🔧 配置说明
-
-### MkDocs 配置
-主要配置文件为 `mkdocs.yml`，包含：
-- 站点信息配置
-- 主题和插件配置  
-- 导航结构定义
-- Markdown 扩展配置
-
-### 插件说明
-- `search` - 搜索功能
-- `tags` - 标签支持
-- `git-revision-date-localized` - 显示文件修改时间
+- 📝 使用清晰的标题层次结构
+- 🎨 适当使用 emoji 增强可读性
+- 📋 保持列表格式的一致性
+- 🔗 外部链接使用新标签页打开
+- ✅ 使用提示框突出重要信息
 
 ## 📄 许可证
 
-[MIT License](LICENSE)
+本项目采用 [MIT 许可证](LICENSE)
 
-## 🤝 贡献
+## 🙏 致谢
 
-欢迎提交 Issue 和 Pull Request 来改进这个项目！
+- [Material for MkDocs](https://squidfunk.github.io/mkdocs-material/) - 优秀的文档主题
+- [IsshikiHugh's Notebook](https://github.com/IsshikiHugh/notebook) - 项目参考和灵感来源
+- 所有贡献者和内容创作者
 
 ---
 
-如果这个项目对你有帮助，请给个 ⭐ Star 支持一下！ 
+<div align="center">
+
+**⭐ 如果这个项目对你有帮助，请给它一个 Star！**
+
+Made with ❤️ by [Lucien-Joelle](https://github.com/lucien-joelle)
+
+</div> 

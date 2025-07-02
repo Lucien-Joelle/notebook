@@ -1,0 +1,102 @@
+{% extends "base.html" %}
+
+{% block extrahead %}
+  <!-- 自定义头部内容 -->
+  <meta name="author" content="{{ config.site_author }}">
+  <meta name="description" content="{{ config.site_description }}">
+  <meta name="keywords" content="学习笔记,技术博客,编程,算法,数据库,网络,工具">
+  <meta property="og:title" content="{% if page and page.title %}{{ page.title }} - {% endif %}{{ config.site_name }}">
+  <meta property="og:description" content="{{ config.site_description }}">
+  <meta property="og:type" content="website">
+  <meta property="og:url" content="{{ page.canonical_url }}">
+  <meta property="og:image" content="{{ config.site_url }}{{ config.theme.logo }}">
+  <meta name="twitter:card" content="summary_large_image">
+  <meta name="twitter:title" content="{% if page and page.title %}{{ page.title }} - {% endif %}{{ config.site_name }}">
+  <meta name="twitter:description" content="{{ config.site_description }}">
+  <meta name="twitter:image" content="{{ config.site_url }}{{ config.theme.logo }}">
+  
+  <!-- 网站图标 -->
+  <link rel="icon" type="image/svg+xml" href="{{ config.theme.favicon }}">
+  <link rel="shortcut icon" href="{{ config.theme.favicon }}">
+  <link rel="apple-touch-icon" href="{{ config.theme.favicon }}">
+  
+  <!-- 页面加载进度条 -->
+  <style>
+    .loading-progress {
+      position: fixed;
+      top: 0;
+      left: 0;
+      width: 0%;
+      height: 3px;
+      background: linear-gradient(90deg, #fd79a8, #fdcb6e);
+      z-index: 9999;
+      transition: width 0.3s ease;
+    }
+  </style>
+{% endblock %}
+
+{% block content %}
+  <!-- 添加页面加载进度条 -->
+  <div class="loading-progress" id="loading-progress"></div>
+  
+  {{ super() }}
+  
+  <!-- 返回顶部按钮 -->
+  <div class="md-top" data-md-component="top" hidden>
+    <div class="md-top__inner md-grid">
+      <a href="#" class="md-top__link md-icon" title="{{ lang.t('top.title') }}" tabindex="-1" aria-label="{{ lang.t('top.title') }}">
+        {% include ".icons/material/arrow-up.svg" %}
+      </a>
+    </div>
+  </div>
+{% endblock %}
+
+{% block scripts %}
+  {{ super() }}
+  
+  <!-- 自定义 JavaScript -->
+  <script>
+    // 页面加载进度条
+    document.addEventListener("DOMContentLoaded", function() {
+      const progressBar = document.getElementById("loading-progress");
+      let progress = 0;
+      
+      const interval = setInterval(function() {
+        progress += Math.random() * 15;
+        if (progress >= 90) {
+          progress = 90;
+          clearInterval(interval);
+        }
+        progressBar.style.width = progress + "%";
+      }, 100);
+      
+      window.addEventListener("load", function() {
+        clearInterval(interval);
+        progressBar.style.width = "100%";
+        setTimeout(function() {
+          progressBar.style.opacity = "0";
+          setTimeout(function() {
+            progressBar.style.display = "none";
+          }, 300);
+        }, 200);
+      });
+    });
+    
+    // 平滑滚动
+    document.addEventListener("DOMContentLoaded", function() {
+      const links = document.querySelectorAll('a[href^="#"]');
+      links.forEach(function(link) {
+        link.addEventListener("click", function(e) {
+          const target = document.querySelector(this.getAttribute("href"));
+          if (target) {
+            e.preventDefault();
+            target.scrollIntoView({
+              behavior: "smooth",
+              block: "start"
+            });
+          }
+        });
+      });
+    });
+  </script>
+{% endblock %} 

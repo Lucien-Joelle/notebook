@@ -14,6 +14,7 @@ theme:
   language: zh
   favicon: assets/logo.svg
   logo: assets/logo.svg
+  custom_dir: overrides
   icon:
     repo: fontawesome/brands/github
   features:
@@ -51,12 +52,25 @@ theme:
 markdown_extensions:
   - toc:
       permalink: true
+      toc_depth: 3
   - admonition
   - attr_list
+  - def_list
   - footnotes
   - md_in_html
+  - tables
+  - abbr
+  - pymdownx.snippets:
+      base_path: includes
+      auto_append:
+        - abbreviations.md
   - pymdownx.arithmatex:
       generic: true
+  - pymdownx.betterem:
+      smart_enable: all
+  - pymdownx.caret
+  - pymdownx.mark
+  - pymdownx.tilde
   - pymdownx.details
   - pymdownx.emoji:
       emoji_index: !!python/name:material.extensions.emoji.twemoji
@@ -65,20 +79,56 @@ markdown_extensions:
       anchor_linenums: true
       line_spans: __span
       pygments_lang_class: true
+      use_pygments: true
+      linenums: true
   - pymdownx.inlinehilite
+  - pymdownx.keys
+  - pymdownx.smartsymbols
+  - pymdownx.snippets:
+      check_paths: true
   - pymdownx.superfences:
       custom_fences:
         - name: mermaid
           class: mermaid
           format: !!python/name:pymdownx.superfences.fence_code_format
+  - pymdownx.tabbed:
+      alternate_style: true
+  - pymdownx.tasklist:
+      custom_checkbox: true
+  - pymdownx.critic:
+      mode: view
 
 # 插件配置 - 参考IsshikiHugh项目的实用组合
 plugins:
   - search:
       lang: zh
+      separator: '[\s\-\.]+'
   - git-revision-date-localized:
       type: timeago
       enable_creation_date: true
+      locale: zh
+  - git-committers:
+      repository: lucien-joelle/notebook
+      branch: main
+  - minify:
+      minify_html: true
+      minify_js: true
+      minify_css: true
+      htmlmin_opts:
+        remove_comments: true
+      cache_safe: true
+  - glightbox:
+      touchNavigation: true
+      loop: false
+      effect: zoom
+      slide_effect: slide
+      width: 100%
+      height: auto
+      zoomable: true
+      draggable: true
+  - awesome-pages
+  - macros:
+      include_dir: includes
 
 # 额外的JavaScript
 extra_javascript:
@@ -103,6 +153,7 @@ nav:
     - 算法: 学习笔记/算法/index.md
     - 数据库: 学习笔记/数据库/index.md
     - 网络: 学习笔记/网络/index.md
+    - AI: 学习笔记/AI/index.md
     - 工具使用:
       - 工具使用/index.md
       - Git: 工具使用/git.md
@@ -115,10 +166,26 @@ nav:
 # 额外配置
 extra:
   generator: false
+  homepage: https://lucien-joelle.github.io/notebook
   social:
     - icon: fontawesome/brands/github
       link: https://github.com/lucien-joelle
       name: GitHub
+    - icon: fontawesome/solid/envelope
+      link: mailto:your-email@example.com
+      name: Email
+  version:
+    provider: mike
+    default: latest
+  consent:
+    title: Cookie 同意
+    description: >-
+      我们使用 Cookie 来识别您的重复访问和偏好，以及
+      衡量我们文档的有效性以及用户是否找到了他们要寻找的内容。
+      在您同意的情况下，这有助于我们改进我们的文档。
+    actions:
+      - accept
+      - reject
 
 # 版权信息
 copyright: Copyright &copy; 2024 Lucien-Joelle
