@@ -1,7 +1,7 @@
-site_name: 我的学习笔记
-site_description: 个人知识库和学习笔记
-site_author: Your Name
-site_url: https://yourusername.github.io/notes
+site_name: Lucien-Joelle's Notebook  
+site_description: 个人学习笔记和知识管理系统
+site_author: Lucien-Joelle
+site_url: https://lucien-joelle.github.io/notebook
 
 # 主题配置
 theme:
@@ -53,8 +53,8 @@ markdown_extensions:
   - pymdownx.tasklist:
       custom_checkbox: true
   - pymdownx.emoji:
-      emoji_index: !!python/name:materialx.emoji.twemoji
-      emoji_generator: !!python/name:materialx.emoji.to_svg
+      emoji_index: !!python/name:material.extensions.emoji.twemoji
+      emoji_generator: !!python/name:material.extensions.emoji.to_svg
   - def_list
   - footnotes
   - meta
@@ -75,6 +75,7 @@ plugins:
   - tags
   - git-revision-date-localized:
       enable_creation_date: true
+      fallback_to_build_date: true
 
 # 额外的JavaScript
 extra_javascript:
