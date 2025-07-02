@@ -8,6 +8,8 @@
 
 h2::before, h3::before, h4::before {
     content: "# ";
+    color: var(--md-primary-fg-color);
+    opacity: 0.8;
 }
 
 .md-ellipsis,
@@ -27,6 +29,15 @@ h1,
 .md-typeset h4,
 .md-typeset h5 {
     font-weight: 600;
+    color: rgba(45, 52, 54, 0.95);
+}
+
+.md-typeset h1 {
+    color: var(--md-primary-fg-color);
+}
+
+.md-typeset h2 {
+    color: rgba(45, 52, 54, 0.9);
 }
 
 body,
@@ -42,6 +53,16 @@ li {
 
 .md-nav__link {
     font-size: small;
+    color: rgba(45, 52, 54, .85);
+}
+
+.md-nav__link:is(:focus, :hover) {
+    color: var(--md-accent-fg-color);
+}
+
+.md-nav__link--active {
+    color: var(--md-primary-fg-color);
+    font-weight: 600;
 }
 
 .md-typeset .admonition,
@@ -93,19 +114,19 @@ li {
 /* 使用我们的美丽渐变配色方案 */
 :root,
 [data-md-color-scheme=default] {
-    --md-default-fg-color: rgba(74, 74, 74, .87);
-    --md-default-fg-color--light: rgba(74, 74, 74, .54);
-    --md-default-fg-color--lighter: rgba(74, 74, 74, .32);
-    --md-default-fg-color--lightest: rgba(74, 74, 74, .12);
+    --md-default-fg-color: rgba(45, 52, 54, .95);
+    --md-default-fg-color--light: rgba(45, 52, 54, .68);
+    --md-default-fg-color--lighter: rgba(45, 52, 54, .45);
+    --md-default-fg-color--lightest: rgba(45, 52, 54, .18);
     --md-default-bg-color: #fefefe;
     --md-default-bg-color--light: hsla(0, 0%, 100%, .7);
     --md-default-bg-color--lighter: hsla(0, 0%, 100%, .3);
     --md-default-bg-color--lightest: hsla(0, 0%, 100%, .12);
     
     /* 主色使用我们的渐变配色 */
-    --md-primary-fg-color: #fd79a8;
-    --md-primary-fg-color--light: rgba(253, 121, 168, 0.7);
-    --md-primary-fg-color--dark: #e84393;
+    --md-primary-fg-color: #e84393;
+    --md-primary-fg-color--light: rgba(232, 67, 147, 0.7);
+    --md-primary-fg-color--dark: #d63384;
     --md-primary-bg-color: #ffeaa7;
     --md-primary-bg-color--light: rgba(255, 234, 167, 0.7);
     
@@ -117,32 +138,32 @@ li {
     --md-accent-bg-color--light: hsla(0, 0%, 100%, .7);
     
     /* 代码配色 */
-    --md-code-fg-color: #74b9ff;
-    --md-code-bg-color: #ffeaa7;
-    --md-code-hl-color: rgba(253, 121, 168, 0.3);
-    --md-code-hl-number-color: #e17055;
-    --md-code-hl-special-color: #fd79a8;
-    --md-code-hl-function-color: #a29bfe;
-    --md-code-hl-constant-color: #6c5ce7;
+    --md-code-fg-color: #2d3436;
+    --md-code-bg-color: rgba(255, 234, 167, 0.3);
+    --md-code-hl-color: rgba(232, 67, 147, 0.3);
+    --md-code-hl-number-color: #d63384;
+    --md-code-hl-special-color: #e84393;
+    --md-code-hl-function-color: #6c5ce7;
+    --md-code-hl-constant-color: #5a4fcf;
     --md-code-hl-keyword-color: #0984e3;
     --md-code-hl-string-color: #00b894;
-    --md-code-hl-name-color: var(--md-code-fg-color);
-    --md-code-hl-operator-color: var(--md-default-fg-color--light);
-    --md-code-hl-punctuation-color: var(--md-default-fg-color--light);
-    --md-code-hl-comment-color: var(--md-default-fg-color--light);
-    --md-code-hl-generic-color: var(--md-default-fg-color--light);
-    --md-code-hl-variable-color: var(--md-default-fg-color--light);
+    --md-code-hl-name-color: #2d3436;
+    --md-code-hl-operator-color: #636e72;
+    --md-code-hl-punctuation-color: #636e72;
+    --md-code-hl-comment-color: #95a5a6;
+    --md-code-hl-generic-color: #636e72;
+    --md-code-hl-variable-color: #2d3436;
     
     /* 文本配色 */
     --md-typeset-color: var(--md-default-fg-color);
-    --md-typeset-a-color: var(--md-accent-fg-color);
+    --md-typeset-a-color: #0984e3;
     --md-typeset-mark-color: rgba(255, 234, 167, 0.8);
-    --md-typeset-del-color: rgba(253, 121, 168, .15);
+    --md-typeset-del-color: rgba(232, 67, 147, .15);
     --md-typeset-ins-color: rgba(0, 184, 148, .15);
-    --md-typeset-kbd-color: #fafafa;
-    --md-typeset-kbd-accent-color: #fff;
-    --md-typeset-kbd-border-color: #fd79a8;
-    --md-typeset-table-color: rgba(253, 121, 168, .12);
+    --md-typeset-kbd-color: #f8f9fa;
+    --md-typeset-kbd-accent-color: #2d3436;
+    --md-typeset-kbd-border-color: #e84393;
+    --md-typeset-table-color: rgba(232, 67, 147, .12);
     
     /* 提示框配色 */
     --md-admonition-fg-color: var(--md-default-fg-color);
@@ -177,21 +198,21 @@ li {
     width: 1.8rem;
     height: 1.8rem;
     border-radius: 50%;
-    color: var(--md-footer-fg-color--light);
+    color: rgba(255, 255, 255, 0.9);
     font-size: 0.9rem;
     text-decoration: none;
     transition: all 0.25s ease-in-out;
-    opacity: 0.8;
-    background: rgba(255, 255, 255, 0.05);
-    border: 1px solid rgba(255, 255, 255, 0.1);
+    opacity: 0.85;
+    background: rgba(255, 255, 255, 0.08);
+    border: 1px solid rgba(255, 255, 255, 0.15);
 }
 
 .md-footer-social__link:hover {
-    color: var(--md-footer-fg-color);
+    color: #ffffff;
     opacity: 1;
     transform: translateY(-3px) scale(1.1);
-    background: rgba(255, 255, 255, 0.15);
-    border-color: rgba(255, 255, 255, 0.3);
+    background: rgba(255, 255, 255, 0.2);
+    border-color: rgba(255, 255, 255, 0.4);
     box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
 }
 
@@ -222,6 +243,43 @@ li {
 .md-footer-meta {
     background: var(--md-footer-bg-color);
     border-top: 1px solid rgba(255, 255, 255, 0.08);
+}
+
+/* 增强图标和按钮的可见性 */
+.md-header__button {
+    color: rgba(45, 52, 54, 0.8);
+}
+
+.md-header__button:is(:focus, :hover) {
+    color: var(--md-primary-fg-color);
+}
+
+.md-search__input {
+    color: rgba(45, 52, 54, 0.9);
+}
+
+.md-search__input::placeholder {
+    color: rgba(45, 52, 54, 0.6);
+}
+
+/* 侧边栏样式增强 */
+.md-sidebar__scrollwrap {
+    scrollbar-color: var(--md-primary-fg-color) transparent;
+}
+
+.md-sidebar__scrollwrap::-webkit-scrollbar-thumb {
+    background-color: var(--md-primary-fg-color);
+}
+
+/* 表格样式增强 */
+.md-typeset table:not([class]) {
+    border: 1px solid rgba(45, 52, 54, 0.12);
+}
+
+.md-typeset table:not([class]) th {
+    background-color: rgba(232, 67, 147, 0.08);
+    color: rgba(45, 52, 54, 0.9);
+    font-weight: 600;
 }
 
 /* 选择文本效果 */
