@@ -60,10 +60,6 @@ markdown_extensions:
   - md_in_html
   - tables
   - abbr
-  - pymdownx.snippets:
-      base_path: includes
-      auto_append:
-        - abbreviations.md
   - pymdownx.arithmatex:
       generic: true
   - pymdownx.betterem:
@@ -85,7 +81,10 @@ markdown_extensions:
   - pymdownx.keys
   - pymdownx.smartsymbols
   - pymdownx.snippets:
+      base_path: includes
       check_paths: true
+      auto_append:
+        - abbreviations.md
   - pymdownx.superfences:
       custom_fences:
         - name: mermaid
@@ -107,9 +106,7 @@ plugins:
       type: timeago
       enable_creation_date: true
       locale: zh
-  - git-committers:
-      repository: lucien-joelle/notebook
-      branch: main
+      fallback_to_build_date: true
   - minify:
       minify_html: true
       minify_js: true
