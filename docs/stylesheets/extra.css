@@ -71,19 +71,22 @@ li {
 }
 
 .md-tabs {
-    background-color: var(--md-primary-fg-color--light);
+    background: linear-gradient(135deg, #fd79a8, #fdcb6e);
 }
 
 .md-tabs__link {
     margin-top: .8rem;
-    opacity: .4;
+    opacity: .7;
     font-family: var(--md-text-font-family);
+    color: rgba(255, 255, 255, 0.8);
+    transition: all 0.2s ease;
 }
 
 .md-tabs__link--active,
 .md-tabs__link:is(:focus, :hover) {
-    color: inherit;
+    color: #ffffff;
     opacity: 1;
+    transform: translateY(-1px);
 }
 
 .md-typeset details:not([open]) {
@@ -262,6 +265,73 @@ li {
     color: rgba(45, 52, 54, 0.6);
 }
 
+/* 页脚导航（上一页/下一页）按钮样式 */
+.md-footer__inner {
+    color: rgba(45, 52, 54, 0.9);
+}
+
+.md-footer__link {
+    color: rgba(45, 52, 54, 0.8);
+    transition: all 0.2s ease;
+}
+
+.md-footer__link:is(:focus, :hover) {
+    color: var(--md-primary-fg-color);
+    transform: translateY(-1px);
+}
+
+.md-footer__direction {
+    color: rgba(45, 52, 54, 0.6);
+    font-size: 0.75rem;
+}
+
+.md-footer__title {
+    color: rgba(45, 52, 54, 0.9);
+    font-weight: 500;
+}
+
+/* 仓库图标样式优化 */
+.md-source {
+    display: block;
+    font-size: 0.65rem;
+    line-height: 1.2;
+    white-space: nowrap;
+    outline-color: var(--md-accent-fg-color);
+    transition: opacity 0.25s;
+}
+
+.md-source:is(:focus, :hover) {
+    opacity: 0.7;
+}
+
+.md-source__icon {
+    display: inline-block;
+    width: 1.2rem;
+    height: 1.2rem;
+    content: "";
+    background-color: currentcolor;
+    mask-image: var(--md-source-icon);
+    mask-repeat: no-repeat;
+    mask-size: contain;
+    vertical-align: middle;
+}
+
+.md-source__icon svg {
+    width: 1.2rem;
+    height: 1.2rem;
+    fill: currentColor;
+}
+
+.md-source__repository {
+    display: inline-block;
+    max-width: calc(100% - 1.2rem);
+    margin-left: 0.8rem;
+    font-weight: 600;
+    text-overflow: ellipsis;
+    overflow: hidden;
+    vertical-align: middle;
+}
+
 /* 侧边栏样式增强 */
 .md-sidebar__scrollwrap {
     scrollbar-color: var(--md-primary-fg-color) transparent;
@@ -280,6 +350,47 @@ li {
     background-color: rgba(232, 67, 147, 0.08);
     color: rgba(45, 52, 54, 0.9);
     font-weight: 600;
+}
+
+/* 增强按钮和交互元素的对比度 */
+.md-top {
+    background-color: var(--md-primary-fg-color);
+    color: #ffffff;
+    opacity: 0.8;
+    transition: all 0.25s ease;
+}
+
+.md-top:is(:focus, :hover) {
+    opacity: 1;
+    transform: scale(1.1);
+}
+
+/* 搜索结果样式 */
+.md-search-result__link {
+    color: rgba(45, 52, 54, 0.9);
+}
+
+.md-search-result__link:is(:focus, :hover) {
+    background-color: rgba(232, 67, 147, 0.05);
+}
+
+.md-search-result__title {
+    color: rgba(45, 52, 54, 0.95);
+    font-weight: 600;
+}
+
+.md-search-result__teaser {
+    color: rgba(45, 52, 54, 0.7);
+}
+
+/* 代码复制按钮 */
+.md-clipboard {
+    color: rgba(45, 52, 54, 0.7);
+    transition: color 0.25s ease;
+}
+
+.md-clipboard:is(:focus, :hover) {
+    color: var(--md-primary-fg-color);
 }
 
 /* 选择文本效果 */
