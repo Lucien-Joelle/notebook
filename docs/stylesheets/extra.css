@@ -94,25 +94,41 @@ body {
 
 /* 侧边栏美化 */
 .md-sidebar {
-  background: rgba(255,255,255,0.9);
-  backdrop-filter: blur(15px);
+  background: rgba(255,255,255,0.6);
+  backdrop-filter: blur(20px);
   border-radius: 20px;
   margin: 1rem;
-  box-shadow: var(--shadow-light);
-  border: 1px solid rgba(255, 255, 255, 0.3);
+  box-shadow: 0 8px 32px rgba(0,0,0,0.1);
+  border: 1px solid rgba(255, 255, 255, 0.4);
 }
 
 .md-sidebar--primary {
-  background: rgba(255,255,255,0.9);
+  background: rgba(255,255,255,0.6);
+  backdrop-filter: blur(20px);
 }
 
 .md-sidebar--secondary {
-  background: rgba(255,255,255,0.9);
+  background: rgba(255,255,255,0.6);
+  backdrop-filter: blur(20px);
 }
 
 .md-nav__title {
   font-weight: 600;
   color: #2d3748 !important;
+  background: transparent !important;
+  padding: 1rem !important;
+}
+
+.md-nav__title--site {
+  background: transparent !important;
+}
+
+.md-nav {
+  background: transparent !important;
+}
+
+.md-nav--primary {
+  background: transparent !important;
 }
 
 .md-nav__item .md-nav__link {
@@ -130,9 +146,10 @@ body {
 }
 
 .md-nav__item .md-nav__link--active {
-  background: var(--gradient-primary);
-  color: white !important;
-  font-weight: 500;
+  background: rgba(253, 121, 168, 0.2);
+  color: #e84393 !important;
+  font-weight: 600;
+  border: 1px solid rgba(253, 121, 168, 0.3);
 }
 
 /* 内容区域美化 */
@@ -270,11 +287,11 @@ body {
 }
 
 .md-typeset .admonition.success {
-  background: linear-gradient(135deg, rgba(76, 175, 80, 0.1) 0%, rgba(102, 187, 106, 0.1) 100%);
+  background: linear-gradient(135deg, rgba(76, 175, 80, 0.1) 0%, rgba(129, 199, 132, 0.1) 100%);
 }
 
 .md-typeset .admonition.success:before {
-  background: var(--gradient-success);
+  background: linear-gradient(135deg, #4caf50 0%, #81c784 100%);
 }
 
 /* 表格美化 */
@@ -282,7 +299,7 @@ body {
   border-radius: var(--border-radius);
   overflow: hidden;
   box-shadow: var(--shadow-light);
-  margin: 2em 0;
+  border: none;
 }
 
 .md-typeset table:not([class]) th {
@@ -304,10 +321,10 @@ body {
 /* 按钮美化 */
 .md-typeset .md-button {
   background: var(--gradient-primary);
-  border: none;
-  border-radius: 8px;
   color: white;
-  padding: 0.7rem 1.5rem;
+  border: none;
+  border-radius: 25px;
+  padding: 0.8rem 2rem;
   font-weight: 500;
   transition: var(--transition-smooth);
   box-shadow: var(--shadow-light);
@@ -331,18 +348,18 @@ body {
 }
 
 .md-search__input::placeholder {
-  color: rgba(0,0,0,0.6);
+  color: rgba(0,0,0,0.5);
 }
 
 /* 卡片样式 */
 .card {
-  background: white;
+  background: linear-gradient(135deg, rgba(255,255,255,0.9) 0%, rgba(255,255,255,0.7) 100%);
   border-radius: var(--border-radius);
-  box-shadow: var(--shadow-light);
   padding: 1.5rem;
   margin: 1rem 0;
+  box-shadow: var(--shadow-light);
   transition: var(--transition-smooth);
-  border: 1px solid rgba(0,0,0,0.05);
+  border: 1px solid rgba(255,255,255,0.3);
 }
 
 .card:hover {
@@ -363,17 +380,18 @@ body {
 .md-tag {
   background: var(--gradient-primary);
   color: white;
-  border-radius: 20px;
-  padding: 0.3rem 1rem;
+  border-radius: 15px;
+  padding: 0.3rem 0.8rem;
   font-size: 0.8rem;
   font-weight: 500;
-  box-shadow: var(--shadow-light);
   transition: var(--transition-smooth);
+  border: none;
+  margin: 0.2rem;
 }
 
 .md-tag:hover {
-  transform: translateY(-1px);
-  box-shadow: var(--shadow-medium);
+  transform: scale(1.05);
+  box-shadow: var(--shadow-light);
 }
 
 /* 图片美化 */
@@ -679,4 +697,57 @@ img:not(.enlarged) {
 
 .md-search__input::placeholder {
   color: #9ca3af !important;
+}
+
+/* 侧边栏深度优化 - 确保所有元素透明背景 */
+.md-sidebar__inner {
+  background: transparent !important;
+}
+
+.md-nav__list {
+  background: transparent !important;
+}
+
+.md-nav__item {
+  background: transparent !important;
+}
+
+.md-nav__item--nested {
+  background: transparent !important;
+}
+
+.md-nav__source {
+  background: transparent !important;
+}
+
+/* 确保所有可能的深色背景都被覆盖 */
+[data-md-level="0"] .md-nav__title {
+  background: transparent !important;
+}
+
+[data-md-level="1"] .md-nav__title {
+  background: transparent !important;
+}
+
+.md-nav__title--active {
+  background: transparent !important;
+}
+
+/* 移除可能存在的Material主题默认样式 */
+.md-nav__title[for="__drawer"] {
+  background: transparent !important;
+}
+
+.md-nav__title[for="__search"] {
+  background: transparent !important;
+}
+
+/* 侧边栏内容区域优化 */
+.md-sidebar .md-sidebar__scrollwrap {
+  background: transparent !important;
+}
+
+.md-overlay {
+  background: rgba(255, 255, 255, 0.3) !important;
+  backdrop-filter: blur(10px) !important;
 } 
