@@ -1,0 +1,75 @@
+/* 自定义样式 */
+
+/* 代码块优化 */
+.highlight {
+  border-radius: 0.5rem;
+  margin: 1em 0;
+}
+
+/* 提示框样式优化 */
+.admonition {
+  border-radius: 0.5rem;
+  margin: 1.5em 0;
+}
+
+/* 表格样式 */
+.md-typeset table:not([class]) {
+  border-radius: 0.5rem;
+  overflow: hidden;
+}
+
+/* 导航标签样式 */
+.md-tabs {
+  background: linear-gradient(135deg, var(--md-primary-fg-color), var(--md-accent-fg-color));
+}
+
+/* 搜索框优化 */
+.md-search__input {
+  border-radius: 1rem;
+}
+
+/* 自定义字体 */
+.md-typeset {
+  font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, "Noto Sans", sans-serif, "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol", "Noto Color Emoji";
+}
+
+/* 代码字体 */
+.md-typeset code, .md-typeset pre, .md-typeset kbd {
+  font-family: "SFMono-Regular", Consolas, "Liberation Mono", Menlo, monospace;
+}
+
+/* 页面内容宽度优化 */
+.md-grid {
+  max-width: 1440px;
+}
+
+/* 侧边栏滚动条样式 */
+.md-sidebar__scrollwrap::-webkit-scrollbar {
+  width: 4px;
+}
+
+.md-sidebar__scrollwrap::-webkit-scrollbar-thumb {
+  background-color: var(--md-default-fg-color--lighter);
+  border-radius: 2px;
+}
+
+/* 标签样式 */
+.md-tag {
+  background-color: var(--md-accent-fg-color--transparent);
+  border-radius: 0.5rem;
+  padding: 0.2rem 0.5rem;
+  font-size: 0.8rem;
+}
+
+/* 响应式图片 */
+.md-typeset img {
+  max-width: 100%;
+  height: auto;
+  border-radius: 0.5rem;
+  box-shadow: 0 2px 8px rgba(0,0,0,0.1);
+}
+
+/* 任务列表样式 */
+.md-typeset .task-list-item input[type="checkbox"] {
+  margin-right: 0.5rem;
+} 

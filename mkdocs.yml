@@ -1,0 +1,120 @@
+site_name: 我的学习笔记
+site_description: 个人知识库和学习笔记
+site_author: Your Name
+site_url: https://yourusername.github.io/notes
+
+# 主题配置
+theme:
+  name: material
+  language: zh
+  features:
+    - navigation.tabs
+    - navigation.sections
+    - navigation.expand
+    - navigation.path
+    - navigation.top
+    - search.highlight
+    - search.suggest
+    - content.code.copy
+    - content.action.edit
+  palette:
+    # 浅色模式
+    - scheme: default
+      primary: indigo
+      accent: indigo
+      toggle:
+        icon: material/brightness-7
+        name: 切换到深色模式
+    # 深色模式
+    - scheme: slate
+      primary: indigo
+      accent: indigo
+      toggle:
+        icon: material/brightness-4
+        name: 切换到浅色模式
+
+# Markdown扩展
+markdown_extensions:
+  - admonition
+  - pymdownx.details
+  - pymdownx.superfences:
+      custom_fences:
+        - name: mermaid
+          class: mermaid
+          format: !!python/name:pymdownx.superfences.fence_code_format
+  - pymdownx.highlight:
+      anchor_linenums: true
+      line_spans: __span
+      pygments_lang_class: true
+  - pymdownx.inlinehilite
+  - pymdownx.snippets
+  - pymdownx.tabbed:
+      alternate_style: true
+  - pymdownx.tasklist:
+      custom_checkbox: true
+  - pymdownx.emoji:
+      emoji_index: !!python/name:materialx.emoji.twemoji
+      emoji_generator: !!python/name:materialx.emoji.to_svg
+  - def_list
+  - footnotes
+  - meta
+  - md_in_html
+  - toc:
+      permalink: true
+  - tables
+  - attr_list
+  - pymdownx.arithmatex:
+      generic: true
+
+# 插件
+plugins:
+  - search:
+      lang: 
+        - zh
+        - en
+  - tags
+  - git-revision-date-localized:
+      enable_creation_date: true
+
+# 额外的JavaScript
+extra_javascript:
+  - javascripts/mathjax.js
+  - https://polyfill.io/v3/polyfill.min.js?features=es6
+  - https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js
+
+# 额外的CSS
+extra_css:
+  - stylesheets/extra.css
+
+# 导航结构 - 基础框架，可根据需要扩展
+nav:
+  - 首页: index.md
+  - 学习笔记:
+    - 学习笔记/index.md
+    - 编程语言:
+      - 学习笔记/编程语言/index.md
+      - Python: 学习笔记/编程语言/python.md
+      - JavaScript: 学习笔记/编程语言/javascript.md
+    - 算法与数据结构:
+      - 学习笔记/算法/index.md
+      - 基础算法: 学习笔记/算法/基础算法.md
+      - 数据结构: 学习笔记/算法/数据结构.md
+    - 计算机基础:
+      - 学习笔记/计算机基础/index.md
+      - 操作系统: 学习笔记/计算机基础/操作系统.md
+      - 计算机网络: 学习笔记/计算机基础/计算机网络.md
+  - 项目记录:
+    - 项目记录/index.md
+  - 读书笔记:
+    - 读书笔记/index.md
+  - 工具使用:
+    - 工具使用/index.md
+    - Git使用: 工具使用/git.md
+    - Docker使用: 工具使用/docker.md
+
+# 额外配置
+extra:
+  social:
+    - icon: fontawesome/brands/github
+      link: https://github.com/yourusername
+  generator: false
