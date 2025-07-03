@@ -175,7 +175,9 @@ nav:
     - 登录鉴权: 技术积累/登录&鉴权.md
     - api制定: 技术积累/api的制定.md
   - 项目记录: 项目记录/index.md
-  - 读书笔记: 读书笔记/index.md
+  - 读书笔记:
+    - 概览: 读书笔记/index.md
+    - Computer Science Distilled: 读书笔记/ComputerScienceDistilled.md
   - 设计指南: 设计指南.md
 
 # 额外配置
