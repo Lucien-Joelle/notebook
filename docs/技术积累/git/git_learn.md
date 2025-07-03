@@ -78,7 +78,7 @@ git commit -m "wrote a readme file"
 git log
 ```
 
-#### 2.3.1 版本回退
+#### 2.3.1 版本倒退
 
 我们使用`HEAD`表示当前版本，上一个版本就是`HEAD^`，上上个版本`HEAD^^`，往上100个版本`HEAD~100`
 
@@ -192,7 +192,7 @@ git commit -m "remove test.txt"
 git checkout -- test.txt
 ```
 
->  [!WARNING]
+!!! warning "警告"
 >
 >  如果我们没有提交到暂存区就把文件删除了，那只能老老实实去看看回收站了
 
@@ -256,7 +256,7 @@ git remote rm original
 
 进行删除
 
-> [!CAUTION]
+!!! danger "危险"
 >
 > 这里的删除并不是在github进行了删除，只是解除了远程仓库和本地的绑定关系。真正的删除需要登录到github中找到删除按钮进行删除。
 
@@ -414,7 +414,7 @@ git checkout master
 git tag v1.0
 ```
 
-> [!important]
+!!! important "重要"
 >
 > 注意标签是打到最新提交的commit身上的
 
@@ -464,7 +464,7 @@ git push original :refs/tags/v1.0   #删除远程的格式
 
 我们首先找到一个开源项目，然后用`Fork`克隆这个仓库，然后`git clone`在本地克隆
 
-> [!caution]
+!!! warning "注意"
 >
 > 推送只能到自己的远程仓库中，到别人的是没有权限的
 

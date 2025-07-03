@@ -1,19 +1,4 @@
-window.MathJax = {
-    tex: {
-      inlineMath: [["\\(", "\\)"]],
-      displayMath: [["\\[", "\\]"]],
-      processEscapes: true,
-      processEnvironments: true
-    },
-    options: {
-      ignoreHtmlClass: ".*|",
-      processHtmlClass: "arithmatex"
-    }
-  };
-  
-  document$.subscribe(() => { 
-    MathJax.typesetPromise()
-  }) 
+// MathJax配置已在mathjax.js中定义，避免重复配置
 
 // Mermaid配置和错误处理
 document$.subscribe(() => {

@@ -91,11 +91,11 @@ state 和 props 主要的区别在于 **props** 是不可变的，而 state 可�
 
 首先，将一些 props 传递给 `Avatar`。例如，让我们传递两个 props：`person`（一个对象）和 `size`（一个数字）：
 
-```JavaScript
+```javascript
 export default function Profile() {
   return (
     <Avatar
-      person={{ name: 'Lin Lanying', imageId: '1bX5QH6' }}
+      person={ { name: 'Lin Lanying', imageId: '1bX5QH6' } }
       size={100}
     />
   );
@@ -106,7 +106,7 @@ export default function Profile() {
 
 你可以通过在 `function Avatar` 之后直接列出它们的名字 `person, size` 来读取这些 props。这些 props 在 `({` 和 `})` 之间，并由逗号分隔。这样，你可以在 `Avatar` 的代码中使用它们，就像使用变量一样。
 
-```JavaScript
+```javascript
 function Avatar({ person, size }) {
   // 在这里 person 和 size 是可访问的
 }
@@ -116,7 +116,7 @@ function Avatar({ person, size }) {
 
 有时候，传递 props 会变得非常重复：
 
-```JavaScript
+```javascript
 function Profile({ person, size, isSepia, thickBorder }) {
   return (
     <div className="card">
@@ -133,7 +133,7 @@ function Profile({ person, size, isSepia, thickBorder }) {
 
 重复代码没有错（它可以更清晰）,但我们可以进行简化：
 
-```JavaScript
+```javascript
 function Profile(props) {
   return (
     <div className="card">
@@ -151,7 +151,7 @@ function Profile(props) {
 
 interface作为props
 
-```JavaScript
+```typescript
 export interface MessageProps {
     messageId: number;
     roomId: number;
@@ -176,8 +176,11 @@ export function MessageItem (props: MessageProps) {
 
 语法：
 
-```JavaScript
-array.map((item, index, array) => {// 对每个元素进行操作return something;});
+```javascript
+array.map((item, index, array) => {
+  // 对每个元素进行操作
+  return something;
+});
 ```
 
 - `item`：当前遍历到的元素
@@ -187,22 +190,28 @@ array.map((item, index, array) => {// 对每个元素进行操作return somethin
 
 假设我们有一个用户列表数据，需要在React组件中渲染成一个列表：
 
-```JavaScript
+```javascript
 import React from 'react';
-const users = [{ id: 1, name: 'Alice', age: 25 },
-                { id: 2, name: 'Bob', age: 30 },
-                { id: 3, name: 'Charlie', age: 35 }];
+
+const users = [
+  { id: 1, name: 'Alice', age: 25 },
+  { id: 2, name: 'Bob', age: 30 },
+  { id: 3, name: 'Charlie', age: 35 }
+];
+
 const UserList = () => {
-    return (
-        <div>
-            <h1>User List</h1>
-            <ul>{users.map((user) => (
-                <li key={user.id}>{user.name} - {user.age}</li>
-                )
-            )}</ul>
-        </div>
-      );
+  return (
+    <div>
+      <h1>User List</h1>
+      <ul>
+        {users.map((user) => (
+          <li key={user.id}>{user.name} - {user.age}</li>
+        ))}
+      </ul>
+    </div>
+  );
 };
+
 export default UserList;
 ```
 
@@ -224,26 +233,31 @@ export default UserList;
 
 假设我们有一个更复杂的对象数组，需要对每个对象的某些属性进行操作后渲染：
 
-```JavaScript
+```javascript
 import React from 'react';
-const products = 
-[{ id: 1, name: 'Apple', price: 10, inStock: true },
-{ id: 2, name: 'Banana', price: 5, inStock: false },
-{ id: 3, name: 'Orange', price: 8, inStock: true }];
+
+const products = [
+  { id: 1, name: 'Apple', price: 10, inStock: true },
+  { id: 2, name: 'Banana', price: 5, inStock: false },
+  { id: 3, name: 'Orange', price: 8, inStock: true }
+];
+
 const ProductList = () => {
-    return (
-        <div>
-            <h1>Product List</h1>
-            <ul>{products.map((product) => (
-                <li key={product.id}>
-                {product.name} - ${product.price}
-                {product.inStock ? <span> (In Stock)</span> : <span> (Out of Stock)</span>}
-                </li>
-                ))}
-                </ul>
-        </div>
-     );
+  return (
+    <div>
+      <h1>Product List</h1>
+      <ul>
+        {products.map((product) => (
+          <li key={product.id}>
+            {product.name} - ${product.price}
+            {product.inStock ? <span> (In Stock)</span> : <span> (Out of Stock)</span>}
+          </li>
+        ))}
+      </ul>
+    </div>
+  );
 };
+
 export default ProductList;
 ```
 

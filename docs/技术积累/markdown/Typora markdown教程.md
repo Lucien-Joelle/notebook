@@ -1,5 +1,3 @@
-# markdown的使用说明
-
 ## 一、标题
 
 >语法：# (一级标题)  ## (二级标题)  ### (三级标题) ......
@@ -344,12 +342,14 @@
 >
 >```text
 >$x^{y^z}=(1+e^x)^{-2xy^w}$
->$\sideset{^1_2}{^3_4}{\underset{6}\bigotimes}$
+>$\overset{^1_2}{\underset{^3_4}{\underset{6}{\bigotimes}}}$
 >```
 
 >效果:
 >$x^{y^z}=(1+e^x)^{-2xy^w}$
->$\sideset{^1_2}{^3_4}{\underset{6}\bigotimes}$
+>$\overset{^1_2}{\underset{^3_4}{\underset{6}{\bigotimes}}}$
+
+>说明: `\sideset` 命令在某些 MathJax 版本中可能不支持，建议使用 `\overset` 和 `\underset` 的组合来实现类似效果。
 
 ### 3、括号和分隔符
 
@@ -428,11 +428,11 @@
 >代码:
 >
 >```text
->$\lim\limits_{n\to\infin}(1+\dfrac{1}{n})^n=e$
+>$\lim\limits_{n\to\infty}(1+\dfrac{1}{n})^n=e$
 >```
 
 >效果:
->$\lim\limits_{n\to\infin}(1+\dfrac{1}{n})^n=e$
+>$\lim\limits_{n\to\infty}(1+\dfrac{1}{n})^n=e$
 
 ### 10、累加、累乘及交集、并集
 
@@ -447,13 +447,13 @@
 
 | 语法                          | 字母                            | 语法                    | 字母                      | 语法               | 字母                 |
 | ----------------------------- | ------------------------------- | ----------------------- | ------------------------- | ------------------ | -------------------- |
-| \Alpha(\alpha)                | $\Alpha(\alpha)$                | \Beta(\beta)            | $\Beta(\beta)$            | \Gamma(\gamma)     | $\Gamma(\gamma)$     |
-| \Epsilon(\epsilon)\varepsilon | $\Epsilon(\epsilon)\varepsilon$ | \Zeta(\zeta)            | $\Zeta(\zeta)$            | \Eta(\eta)         | $\Eta(\eta)$         |
-| \Iota(\iota)                  | $\Iota(\iota)$                  | \Kappa(\kappa)\varkappa | $\Kappa(\kappa)\varkappa$ | \Lambda(\lambda)   | $\Lambda(\lambda)$   |
-| \Nu(\nu)                      | $\Nu(\nu)$                      | \Xi(\xi)                | $\Xi(\xi)$                | \Omicron(\omicron) | $\Omicron(\omicron)$ |
-| \Rho(\rho)\varrho             | $\Rho(\rho)\varrho$             | \Sigma(\sigma)\varsigma | $\Sigma(\sigma)\varsigma$ | \Tau(\tau)         | $\Tau(\tau)$         |
-| \Phi(\phi)\varphi             | $\Phi(\phi)\varphi$             | \Chi(\chi)              | $\Chi(\chi)$              | \Psi(\psi)         | $\Psi(\psi)$         |
-| \Delta(\delta)                | $\Delta(\delta)$                | \Theta(\theta)\vartheta | $\Theta(\theta)\vartheta$ | \Mu(\mu)           | $\Mu(\mu)$           |
+| \alpha                | $\alpha$                | \beta            | $\beta$            | \Gamma(\gamma)     | $\Gamma(\gamma)$     |
+| \epsilon(\varepsilon) | $\epsilon(\varepsilon)$ | \zeta            | $\zeta$            | \eta         | $\eta$         |
+| \iota                  | $\iota$                  | \kappa(\varkappa) | $\kappa(\varkappa)$ | \Lambda(\lambda)   | $\Lambda(\lambda)$   |
+| \nu                      | $\nu$                      | \Xi(\xi)                | $\Xi(\xi)$                | \omicron | $\omicron$ |
+| \rho(\varrho)             | $\rho(\varrho)$             | \Sigma(\sigma)(\varsigma) | $\Sigma(\sigma)(\varsigma)$ | \tau         | $\tau$         |
+| \Phi(\phi)(\varphi)             | $\Phi(\phi)(\varphi)$             | \chi              | $\chi$              | \Psi(\psi)         | $\Psi(\psi)$         |
+| \Delta(\delta)                | $\Delta(\delta)$                | \Theta(\theta)(\vartheta) | $\Theta(\theta)(\vartheta)$ | \mu           | $\mu$           |
 | \Pi(\pi)\varpi                | $\Pi(\pi)\varpi$                | \Omega(\omega)          | $\Omega(\omega)$          | \upsilon           | $\upsilon$           |
 | \ell                          | $\ell$                          | \eth                    | $\eth$                    | \hbar              | $\hbar$              |
 | \hslash                       | $\hslash$                       | \mho                    | $\mho$                    | \partial           | $\partial$           |
@@ -475,7 +475,7 @@
 | \approx   | $\approx$   | \xlongequal{文本} | $\xlongequal{文本}$ | \triangleq     | $\triangleq$ |
 | \sim      | $\sim$      | \doteq            | $\doteq$            | \equiv         | $\equiv$     |
 | \cong     | $\cong$     | \propto           | $\propto$           | \parallel(\\|) | $\parallel$  |
-| \prec     | $\prec$     | \pmod{2}          | $\pmod{2}$          | \bmod          | $\bmod{2}$   |
+| \prec     | $\prec$     | \pmod{2}          | $\pmod{2}$          | a \bmod 2          | $a \bmod 2$   |
 
 #### ③集合运算符
 
@@ -501,7 +501,7 @@
 | ----- | ------- | ------ | -------- | --------- | -------- |
 | \int  | $\int$  | \iint  | $\iint$  | \iiint    | $\iiint$ |
 | \oint | $\oint$ | \oiint | $\oiint$ | \prime(‘) | $\prime$ |
-| \lim  | $\lim$  | \infin | $\infin$ | \nabla    | $\nabla$ |
+| \lim  | $\lim$  | \infty | $\infty$ | \nabla    | $\nabla$ |
 | \grad | $\grad$ |        |          |           |          |
 
 #### ⑥逻辑运算符
@@ -509,7 +509,7 @@
 | 输入     | 显示       | 输入       | 显示         | 输入   | 显示     |
 | -------- | ---------- | ---------- | ------------ | ------ | -------- |
 | \because | $\because$ | \therefore | $\therefore$ |        |          |
-| \forall  | $\forall$  | \exist     | $\exist$     |        |          |
+| \forall  | $\forall$  | \exists     | $\exists$     |        |          |
 | \not>    | $\not>$    | \not<      | $\not<$      |        |          |
 | \land    | $\land$    | \lor       | $\lor$       | \lnot  | $\lnot$  |
 | \top     | $\top$     | \vdash     | $\vdash$     | \vDash | $\vDash$ |
@@ -640,11 +640,13 @@
 | fuchsia | $\color{fuchsia}{color}$ |        |                   |        |                   |
 
 >* 适用新版浏览器
+>
 >代码:
 >```text
->$\color{#rgb}{文字}$    (注:其中r、g、b可以输入0~9和a~f来分别表示红色、绿色和蓝色的纯度)
+>$\color{rgb}{文字}$    (注:其中r、g、b可以输入0~9和a~f来分别表示红色、绿色和蓝色的纯度)
 >```
 
+{% raw %}
 | 输入 | 输出              | 输入 | 输出              | 输入 | 输出              | 输入 | 输出              |
 | ---- | ----------------- | ---- | ----------------- | ---- | ----------------- | ---- | ----------------- |
 | #000 | $\color{#000}{color}$ | #005 | $\color{#005}{color}$ | #00A | $\color{#00A}{color}$ | #00F | $\color{#00F}{color}$ |
@@ -663,15 +665,16 @@
 | #5F0 | $\color{#5F0}{color}$ | #5F5 | $\color{#5F5}{color}$ | #5FA | $\color{#5FA}{color}$ | #5FF | $\color{#5FF}{color}$ |
 | #AF0 | $\color{#AF0}{color}$ | #AF5 | $\color{#AF5}{color}$ | #AFA | $\color{#AFA}{color}$ | #AFF | $\color{#AFF}{color}$ |
 | #FF0 | $\color{#FF0}{color}$ | #FF5 | $\color{#FF5}{color}$ | #FFA | $\color{#FFA}{color}$ | #FFF | $\color{#FFF}{color}$ |
+{% endraw %}
 
 #### ③删除线
 
->说明:  使用`\require{cancle}`声明，再使用`\cancle{字符}`、`\bcancle{字符}`、`\xcancle{字符}`、`\cancleto{字符}{字符}`来实现各种**片段删除线**效果。
+>说明:  使用`\cancel{字符}`、`\bcancel{字符}`、`\xcancel{字符}`、`\cancelto{字符}{字符}`来实现各种**片段删除线**效果。
 
 >代码:
 >```text
 >$$
->\require{cancel}\begin{array}{r1}
+>\begin{array}{rl}
 >\verb|y+\cancel{x}|&y+\cancel{x}\\
 >\verb|y+\cancel{y+x}|&y+\cancel{y+x}\\
 >\verb|y+\bcancel{x}|&y+\bcancel{x}\\
@@ -684,7 +687,7 @@
 
 >效果:
 >$$
->\require{cancel}\begin{array}{r1}
+>\begin{array}{rl}
 >\verb|y+\cancel{x}|&y+\cancel{x}\\
 >\verb|y+\cancel{y+x}|&y+\cancel{y+x}\\
 >\verb|y+\bcancel{x}|&y+\bcancel{x}\\
@@ -694,12 +697,12 @@
 >\end{array}
 >$$
 
->说明:  使用`\require{enclose}`来允许**整段删除线**的显示，再使用`\enclose{删除线效果}{字符}`来使用各种整段删除线效果。其中，删除线效果有`horizontalstrike`、`verticalstrike`、`updiagonalstrike`和`downdiagonalstrike`,可以叠加使用。
+>说明:  使用`\enclose{删除线效果}{字符}`来使用各种**整段删除线**效果。其中，删除线效果有`horizontalstrike`、`verticalstrike`、`updiagonalstrike`和`downdiagonalstrike`,可以叠加使用。
 
 >代码:
 >```text
 >$$
->\require{enclose}\begin{array}{r1}
+>\begin{array}{rl}
 >\verb|\enclose{horizontalstrike}{x+y}|&\enclose{horizontalstrike}{x+y}\\
 >\verb|\enclose{verticalstrike}{\frac xy}|&\enclose{verticalstrike}{\frac xy}\\
 >\verb|\enclose{updiagonalstrike}{x+y}|&\enclose{updiagonalstrike}{x+y}\\
@@ -711,7 +714,7 @@
 
 >效果:
 >$$
->\require{enclose}\begin{array}{r1}
+>\begin{array}{rl}
 >\verb|\enclose{horizontalstrike}{x+y}|&\enclose{horizontalstrike}{x+y}\\
 >\verb|\enclose{verticalstrike}{\frac xy}|&\enclose{verticalstrike}{\frac xy}\\
 >\verb|\enclose{updiagonalstrike}{x+y}|&\enclose{updiagonalstrike}{x+y}\\
@@ -835,6 +838,8 @@
 >```
 
 >效果:
+>
+>
 >$$
 >\begin{align}
 >\sqrt{37}&=\sqrt{\dfrac{73^2-1}{12^2}}\\
@@ -891,18 +896,18 @@
 >$$
 >f(n)=
 >\begin{cases}
->\dfrac n2,&\text{if $n$ is even}\\[2ex]
->3n+1,&\text{if $n$ is odd}
->\end{cases}\tag{适配[2ex]}
+>\dfrac{n}{2},&\text{if } n \text{ is even}\\[2ex]
+>3n+1,&\text{if } n \text{ is odd}
+>\end{cases}\tag{with-spacing}
 >$$
 >***
 >
 >$$
 >f(n)=
 >\begin{cases}
->\dfrac n2,&\text{if $n$ is even}\\
->3n+1,&\text{if $n$ is odd}
->\end{cases}\tag{不适配[2ex]}
+>\dfrac{n}{2},&\text{if } n \text{ is even}\\
+>3n+1,&\text{if } n \text{ is odd}
+>\end{cases}\tag{no-spacing}
 >$$
 >```
 
@@ -910,18 +915,18 @@
 >$$
 >f(n)=
 >\begin{cases}
->\dfrac n2,&\text{if $n$ is even}\\[2ex]
->3n+1,&\text{if $n$ is odd}
->\end{cases}\tag{适配[2ex]}
+>\dfrac{n}{2},&\text{if } n \text{ is even}\\[2ex]
+>3n+1,&\text{if } n \text{ is odd}
+>\end{cases}\tag{with-spacing}
 >$$
 >***
 >
 >$$
 >f(n)=
 >\begin{cases}
->\dfrac n2,&\text{if $n$ is even}\\
->3n+1,&\text{if $n$ is odd}
->\end{cases}\tag{不适配[2ex]}
+>\dfrac{n}{2},&\text{if } n \text{ is even}\\
+>3n+1,&\text{if } n \text{ is odd}
+>\end{cases}\tag{no-spacing}
 >$$
 
 ### 20、数组与表格

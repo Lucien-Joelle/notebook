@@ -105,7 +105,7 @@ HTML（HyperText Markup Language，超文本标记语言）是一种用来告知
 <input type="text" disabled />
 <input type="text" /></P>
 
-> [!caution]
+!!! warning "注意"
 >
 > 注意，虽然有单个属性的时候不加双引号也是可以的，但是出现了两个属性的话就会出问题。所以我们还是最好加上双引号
 
@@ -241,7 +241,7 @@ started with developing web sites and applications." />
 >
 >我们可以看到描述。
 >
->> [!note]
+!!! note "注意"
 >>
 >> 一个网页可以有多个`meta`，但是一个`meta`一般就只有一个`name`和`content`对
 
@@ -282,7 +282,7 @@ started with developing web sites and applications." />
 * 斜体：`<em>`
 * 加粗：`<strong>`
 
-> [!Caution]
+!!! warning "注意"
 >
 > - **`<b>`**：用于将文本设置为粗体，但不表达任何强调或重要性，纯粹是样式。
 > - **`<i>`**：用于将文本设置为斜体，也不表达任何语义，仅用于样式。
@@ -599,7 +599,7 @@ https://www.example.com/products/item1.html
 * 绝对URL 就是互联网上的绝对位置
 * 相对URL就是相对你的文件的位置
 
-> [!note]
+!!! note "注意"
 >
 > - **指向当前目录**：==就是平级==如果你想在 `index.html`（顶层 `index.html`）中包含一个指向 `contacts.html` 的超链接，你只需要指定想要链接到的文件名。因为它与当前文件是在同一个目录的，所以你应该使用的 URL 是 `contacts.html`：
 >
@@ -660,7 +660,7 @@ https://www.example.com/products/item1.html
 
 然而，不建议使用绝对 URL 进行链接。你需要托管你想要在网站上使用的图像，在比较简单的情况下，通常我们会把网站的图像保存在与 HTML 相同的服务器上。此外，从维护的角度来说，使用相对 URL 比绝对 URL 更有效率（当你将网站迁移到不同的域名时，你不需要更新所有 URL，使其包含新域名）。
 
-> [!CAUTION]
+!!! danger "危险"
 >
 > `<img>`没有结束标签
 
