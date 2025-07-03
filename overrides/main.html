@@ -41,14 +41,7 @@
   
   {{ super() }}
   
-  <!-- 返回顶部按钮 -->
-  <div class="md-top" data-md-component="top" hidden>
-    <div class="md-top__inner md-grid">
-      <a href="#" class="md-top__link md-icon" title="{{ lang.t('top.title') }}" tabindex="-1" aria-label="{{ lang.t('top.title') }}">
-        {% include ".icons/material/arrow-up.svg" %}
-      </a>
-    </div>
-  </div>
+
 {% endblock %}
 
 {% block scripts %}

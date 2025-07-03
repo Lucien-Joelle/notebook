@@ -70,6 +70,11 @@ li {
     border: none;
 }
 
+/* 顶端统一渐变色设置 */
+.md-header {
+    background: linear-gradient(135deg, #fd79a8, #fdcb6e);
+}
+
 .md-tabs {
     background: linear-gradient(135deg, #fd79a8, #fdcb6e);
 }
@@ -183,6 +188,76 @@ li {
     --md-shadow-z1: 0 4px 8px rgba(253, 121, 168, 0.1), 0 2px 4px rgba(0, 206, 201, 0.1);
     --md-shadow-z2: 0 8px 16px rgba(253, 121, 168, 0.15), 0 4px 8px rgba(0, 206, 201, 0.1);
     --md-shadow-z3: 0 12px 24px rgba(253, 121, 168, 0.2), 0 6px 12px rgba(0, 206, 201, 0.15);
+}
+
+/* 夜间模式配色方案 */
+[data-md-color-scheme="slate"] {
+    --md-default-fg-color: rgba(255, 255, 255, .92);
+    --md-default-fg-color--light: rgba(255, 255, 255, .78);
+    --md-default-fg-color--lighter: rgba(255, 255, 255, .62);
+    --md-default-fg-color--lightest: rgba(255, 255, 255, .32);
+    --md-default-bg-color: #1a1a1a;
+    --md-default-bg-color--light: rgba(255, 255, 255, .05);
+    --md-default-bg-color--lighter: rgba(255, 255, 255, .025);
+    --md-default-bg-color--lightest: rgba(255, 255, 255, .01);
+    
+    /* 主色调整为更适合夜间的渐变色 */
+    --md-primary-fg-color: #ff6b9d;
+    --md-primary-fg-color--light: rgba(255, 107, 157, 0.8);
+    --md-primary-fg-color--dark: #e91e63;
+    --md-primary-bg-color: #2d1b2e;
+    --md-primary-bg-color--light: rgba(45, 27, 46, 0.8);
+    
+    /* 强调色调整 */
+    --md-accent-fg-color: #4ecdc4;
+    --md-accent-fg-color--light: #81e6d9;
+    --md-accent-fg-color--transparent: rgba(78, 205, 196, 0.15);
+    --md-accent-bg-color: #2d1b2e;
+    --md-accent-bg-color--light: rgba(45, 27, 46, 0.8);
+    
+    /* 代码配色调整 */
+    --md-code-fg-color: #f8f8f2;
+    --md-code-bg-color: rgba(40, 44, 52, 0.8);
+    --md-code-hl-color: rgba(255, 107, 157, 0.2);
+    --md-code-hl-number-color: #ff6b9d;
+    --md-code-hl-special-color: #ff6b9d;
+    --md-code-hl-function-color: #bd93f9;
+    --md-code-hl-constant-color: #8be9fd;
+    --md-code-hl-keyword-color: #50fa7b;
+    --md-code-hl-string-color: #4ecdc4;
+    --md-code-hl-name-color: #f8f8f2;
+    --md-code-hl-operator-color: #ff79c6;
+    --md-code-hl-punctuation-color: #bfbfbf;
+    --md-code-hl-comment-color: #6272a4;
+    --md-code-hl-generic-color: #f8f8f2;
+    --md-code-hl-variable-color: #f8f8f2;
+    
+    /* 文本配色调整 */
+    --md-typeset-color: var(--md-default-fg-color);
+    --md-typeset-a-color: #4ecdc4;
+    --md-typeset-mark-color: rgba(255, 107, 157, 0.3);
+    --md-typeset-del-color: rgba(255, 107, 157, 0.2);
+    --md-typeset-ins-color: rgba(78, 205, 196, 0.2);
+    --md-typeset-kbd-color: #282a36;
+    --md-typeset-kbd-accent-color: #f8f8f2;
+    --md-typeset-kbd-border-color: #ff6b9d;
+    --md-typeset-table-color: rgba(255, 107, 157, 0.15);
+    
+    /* 提示框配色调整 */
+    --md-admonition-fg-color: var(--md-default-fg-color);
+    --md-admonition-bg-color: rgba(255, 255, 255, 0.02);
+    
+    /* 页脚配色调整 */
+    --md-footer-fg-color: rgba(255, 255, 255, 0.9);
+    --md-footer-fg-color--light: rgba(255, 255, 255, 0.7);
+    --md-footer-fg-color--lighter: rgba(255, 255, 255, 0.5);
+    --md-footer-bg-color: linear-gradient(135deg, #8e44ad, #2c3e50);
+    --md-footer-bg-color--dark: rgba(142, 68, 173, 0.8);
+    
+    /* 阴影效果调整 */
+    --md-shadow-z1: 0 4px 8px rgba(0, 0, 0, 0.3), 0 2px 4px rgba(255, 107, 157, 0.1);
+    --md-shadow-z2: 0 8px 16px rgba(0, 0, 0, 0.4), 0 4px 8px rgba(255, 107, 157, 0.15);
+    --md-shadow-z3: 0 12px 24px rgba(0, 0, 0, 0.5), 0 6px 12px rgba(255, 107, 157, 0.2);
 }
 
 /* 页脚社交图标样式优化 */
@@ -332,13 +407,14 @@ li {
     vertical-align: middle;
 }
 
-/* 侧边栏样式增强 */
+/* 侧边栏样式增强 - 隐藏滚动条 */
 .md-sidebar__scrollwrap {
-    scrollbar-color: var(--md-primary-fg-color) transparent;
+    scrollbar-width: none; /* Firefox */
+    -ms-overflow-style: none; /* IE and Edge */
 }
 
-.md-sidebar__scrollwrap::-webkit-scrollbar-thumb {
-    background-color: var(--md-primary-fg-color);
+.md-sidebar__scrollwrap::-webkit-scrollbar {
+    display: none; /* Chrome, Safari, Opera */
 }
 
 /* 表格样式增强 */
@@ -397,6 +473,126 @@ li {
 ::selection {
     background: rgba(253, 121, 168, 0.3);
     color: #2d3436;
+}
+
+/* GitHub仓库链接样式 */
+.notebook-link {
+    position: absolute;
+    top: 0.5rem;
+    right: 1rem;
+    font-family: 'Source Code Pro', 'Courier New', monospace;
+    font-size: 0.7rem;
+    color: rgba(45, 52, 54, 0.6);
+    text-decoration: none;
+    padding: 0.2rem 0.4rem;
+    border-radius: 0.2rem;
+    z-index: 1;
+    opacity: 0.8;
+    transition: all 0.2s ease;
+}
+
+.notebook-link:hover {
+    color: var(--md-primary-fg-color);
+    opacity: 1;
+    text-decoration: none;
+}
+
+/* 夜间模式GitHub仓库链接 */
+[data-md-color-scheme="slate"] .notebook-link {
+    color: rgba(255, 255, 255, 0.7);
+}
+
+[data-md-color-scheme="slate"] .notebook-link:hover {
+    color: #4ecdc4;
+}
+
+/* 夜间模式头部导航样式 */
+[data-md-color-scheme="slate"] .md-header {
+    background: linear-gradient(135deg, #8e44ad, #2c3e50);
+    color: rgba(255, 255, 255, 0.95);
+}
+
+[data-md-color-scheme="slate"] .md-tabs {
+    background: linear-gradient(135deg, #8e44ad, #2c3e50);
+}
+
+[data-md-color-scheme="slate"] .md-tabs__link {
+    color: rgba(255, 255, 255, 0.8);
+}
+
+[data-md-color-scheme="slate"] .md-tabs__link--active,
+[data-md-color-scheme="slate"] .md-tabs__link:is(:focus, :hover) {
+    color: #ffffff;
+    opacity: 1;
+}
+
+/* 夜间模式文本对比度优化 */
+[data-md-color-scheme="slate"] .md-typeset h1,
+[data-md-color-scheme="slate"] .md-typeset h2,
+[data-md-color-scheme="slate"] .md-typeset h3,
+[data-md-color-scheme="slate"] .md-typeset h4,
+[data-md-color-scheme="slate"] .md-typeset h5 {
+    color: rgba(255, 255, 255, 0.95);
+}
+
+[data-md-color-scheme="slate"] .md-typeset h1 {
+    color: #ff6b9d;
+}
+
+[data-md-color-scheme="slate"] .md-typeset h2 {
+    color: rgba(255, 255, 255, 0.9);
+}
+
+/* 夜间模式导航链接 */
+[data-md-color-scheme="slate"] .md-nav__link {
+    color: rgba(255, 255, 255, 0.8);
+}
+
+[data-md-color-scheme="slate"] .md-nav__link:is(:focus, :hover) {
+    color: #4ecdc4;
+}
+
+[data-md-color-scheme="slate"] .md-nav__link--active {
+    color: #ff6b9d;
+    font-weight: 600;
+}
+
+/* 夜间模式按钮样式 */
+[data-md-color-scheme="slate"] .md-top {
+    background-color: #ff6b9d;
+    color: #ffffff;
+}
+
+[data-md-color-scheme="slate"] .md-header__button {
+    color: rgba(255, 255, 255, 0.8);
+}
+
+[data-md-color-scheme="slate"] .md-header__button:is(:focus, :hover) {
+    color: #4ecdc4;
+}
+
+/* 夜间模式选择文本效果 */
+[data-md-color-scheme="slate"] ::selection {
+    background: rgba(255, 107, 157, 0.4);
+    color: #ffffff;
+}
+
+/* 夜间模式页脚样式 */
+[data-md-color-scheme="slate"] .md-footer-meta {
+    background: linear-gradient(135deg, #8e44ad, #2c3e50);
+    border-top: 1px solid rgba(255, 255, 255, 0.1);
+}
+
+[data-md-color-scheme="slate"] .md-footer__inner {
+    color: rgba(255, 255, 255, 0.9);
+}
+
+[data-md-color-scheme="slate"] .md-footer__link {
+    color: rgba(255, 255, 255, 0.8);
+}
+
+[data-md-color-scheme="slate"] .md-footer__link:is(:focus, :hover) {
+    color: #4ecdc4;
 }
 
 /* 自定义提示框样式 */

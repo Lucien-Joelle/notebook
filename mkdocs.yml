@@ -130,9 +130,10 @@ plugins:
 # 额外的JavaScript
 extra_javascript:
   - javascripts/mathjax.js
-  - javascripts/custom.js
   - https://polyfill.io/v3/polyfill.min.js?features=es6
   - https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js
+  - https://cdn.jsdelivr.net/npm/mermaid@10.9.0/dist/mermaid.min.js
+  - javascripts/custom.js
 
 # 额外的CSS
 extra_css:
