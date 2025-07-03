@@ -8,7 +8,7 @@ repo_url: https://github.com/lucien-joelle/notebook
 repo_name: lucien-joelle/notebook
 edit_uri: edit/main/docs/
 
-# 主题配置 - 参考IsshikiHugh项目的简洁设计
+# 主题配置
 theme:
   name: material
   language: zh
@@ -34,7 +34,6 @@ theme:
     - toc.follow
     
   palette:
-    # 保持原有美丽配色
     - scheme: default
       primary: deep purple
       accent: purple
@@ -48,11 +47,11 @@ theme:
         icon: material/brightness-4
         name: 切换到亮色模式
 
-# Markdown扩展 - 参考IsshikiHugh项目的简洁配置
+# Markdown扩展
 markdown_extensions:
   - toc:
       permalink: true
-      toc_depth: 3
+      toc_depth: 6
   - admonition
   - attr_list
   - def_list
@@ -97,7 +96,7 @@ markdown_extensions:
   - pymdownx.critic:
       mode: view
 
-# 插件配置 - 参考IsshikiHugh项目的实用组合
+# 插件配置
 plugins:
   - search:
       lang: zh
@@ -139,27 +138,41 @@ extra_javascript:
 extra_css:
   - stylesheets/extra.css
 
-# 导航结构 - 参考IsshikiHugh项目的简洁架构
+# 导航结构
 nav:
-  - 💠 主页: index.md
-  - 📚 技术积累:
-    - 学习笔记/index.md
-    - 编程语言:
-      - 学习笔记/编程语言/index.md
-      - Python: 学习笔记/编程语言/python.md
-      - JavaScript: 学习笔记/编程语言/javascript.md
-    - 算法: 学习笔记/算法/index.md
-    - 数据库: 学习笔记/数据库/index.md
-    - 网络: 学习笔记/网络/index.md
-    - AI: 学习笔记/AI/index.md
-    - 工具使用:
-      - 工具使用/index.md
-      - Git: 工具使用/git.md
-      - VS Code: 工具使用/vscode.md
-      - Docker: 工具使用/docker.md
-  - 📝 项目记录: 项目记录/index.md
-  - 📖 读书笔记: 读书笔记/index.md
-  - 📝 设计指南: 设计指南.md
+  - 主页: index.md
+  - 课堂笔记: 
+    - 概览: 课堂笔记/index.md
+    - 离散数学: 课堂笔记/离散数学.md
+    - 数据结构基础: 课堂笔记/数据结构基础.md
+    - 数字逻辑设计: 课堂笔记/数字逻辑设计.md
+  - 技术积累:
+    - 概览: 技术积累/index.md
+    - markdown:
+      - 概览: 技术积累/markdown/index.md
+      - Typora教程: 技术积累/markdown/Typora markdown教程.md
+      - markdown入门: 技术积累/markdown/新手教程.md
+    - git:
+      - 概览: 技术积累/git/index.md
+      - git学习: 技术积累/git/git_learn.md
+      - git应用: 技术积累/git/git_apply.md
+    - 前端开发:
+      - 概览: 技术积累/前端/index.md
+      - 关于前端: 技术积累/前端三大件/关于前端.md
+      - HTML: 技术积累/前端三大件/HTML.md
+      - CSS: 技术积累/前端三大件/CSS.md
+      - JavaScript: 技术积累/前端三大件/JS.md
+      - React: 技术积累/前端三大件/React.md
+      - fatch api: 技术积累/前端三大件/fatch api.md
+    - 后端开发:
+      - 概览: 技术积累/后端/index.md
+      - 数据库: 技术积累/后端/数据库.md
+      - Go: 技术积累/后端/Go.md
+    - 登录鉴权: 技术积累/登录&鉴权.md
+    - api制定: 技术积累/api的制定.md
+  - 项目记录: 项目记录/index.md
+  - 读书笔记: 读书笔记/index.md
+  - 设计指南: 设计指南.md
 
 # 额外配置
 extra:
@@ -184,4 +197,4 @@ extra:
       - reject
 
 # 版权信息
-copyright: Copyright &copy; 2024 Lucien-Joelle
+copyright: Copyright &copy; 2024 Lucien-Joelle 
