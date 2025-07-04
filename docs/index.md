@@ -16,7 +16,7 @@
 
 ## 联系我
 
-<img src="D:\task\note\图片\8f379477323e9ddc9b1a7b05dde7ebe.png" style="zoom:33%;" />
+<img src="assets/图片/8f379477323e9ddc9b1a7b05dde7ebe.png" style="zoom:33%;" />
 
 ---
 
