@@ -423,8 +423,8 @@ li {
 }
 
 .md-typeset table:not([class]) th {
-    background-color: rgba(232, 67, 147, 0.08);
-    color: rgba(45, 52, 54, 0.9);
+    background-color: rgba(243, 96, 167, 0.689);
+    color: rgba(255, 255, 255, 0.9);
     font-weight: 600;
 }
 
@@ -584,11 +584,7 @@ li {
 }
 
 [data-md-color-scheme="slate"] .md-footer__inner {
-    color: rgba(255, 255, 255, 0.9);
-}
-
-[data-md-color-scheme="slate"] .md-footer__link {
-    color: rgba(255, 255, 255, 0.8);
+    color: rgb(255, 255, 255);
 }
 
 [data-md-color-scheme="slate"] .md-footer__link:is(:focus, :hover) {
@@ -796,4 +792,16 @@ li {
     background-color: #6c5ce7;
     -webkit-mask-image: var(--md-admonition-icon--eg);
     mask-image: var(--md-admonition-icon--eg);
+}
+
+/* 夜间模式下页面标题颜色设置 */
+[data-md-color-scheme="slate"] .md-footer__title {
+    color: rgba(255, 255, 255, 0.95);
+    font-weight: 600;
+}
+
+/* 夜间模式下"下一页"方向指示文字颜色设置 */
+[data-md-color-scheme="slate"] .md-footer__direction {
+    color: rgba(255, 255, 255, 0.7);
+    font-size: 0.75rem;
 } 
