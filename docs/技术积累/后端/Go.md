@@ -35,6 +35,7 @@ func main() {
 ## 详细组成部分
 
 ### 1. 包声明 (Package Declaration)
+
 *   **语法**: `package <packageName>`
 *   **位置**: 每个 `.go` 文件的第一行（非注释）。
 *   **作用**: 定义文件所属的包。
@@ -42,6 +43,7 @@ func main() {
 *   **其他包名**: 表明这是一个库包，可被其他程序导入。
 
 ### 2. 导入声明 (Import Declaration)
+
 *   **语法**:
     *   单个导入: `import "packageName"`
     *   批量导入: `import ( "pkg1"; "pkg2" )` 或 `import ( "pkg1" \n "pkg2" )`
@@ -49,12 +51,14 @@ func main() {
 *   **注意**: 导入了但未使用的包会导致编译错误。
 
 ### 3. 包级别声明 (Package-Level Declarations)
+
 在所有函数之外声明，整个包内可见。首字母大写则可被其他包访问（导出）。
 *   **变量声明 (`var`)**: 全局变量，生命周期为整个程序运行时间。
 *   **常量声明 (`const`)**: 编译时确定的值，不可修改。
 *   **类型声明 (`type`)**: 定义自定义类型，如 `struct`, `interface`, 函数类型等。
 
 ### 4. 函数声明 (`func`)
+
 *   **作用**: 执行特定任务的代码块。
 *   **`func main()`**: 特殊函数，在 `package main` 中作为程序入口点。
 
@@ -109,6 +113,7 @@ func main() {
 ### 2. 函数 (Function)
 
 #### 基本语法:
+
 ```Go
 func functionName(parameter1 type1, parameter2 type2) (returnType1, returnType2) {
     // 函数体
@@ -264,7 +269,7 @@ init.go 用于初始化数据库连接，也就是说，在这一部分，你需
   - 打开数据库：`gorm.Open`
 - 进阶：连接池配置 --> 比较难，不要求掌握
 
-### 2.3.2  调试工具：err 和 fmt / log 
+### 2.3.2  调试工具：err 和 fmt / log
 
 1. **错误处理**
 
@@ -311,437 +316,3 @@ log.Flags：设置日志格式标志（如日期、时间、微秒、文件行�
 log.SetOutput：更改日志输出位置（如文件）。
 ```
 
-## 2.4 ORM
-
-这一部分内容请见——[GORM](https://xn4zlkzg4p.feishu.cn/wiki/EbrIwV7imiz75mkeJSWcmmUGnlh)
-
-## 3.对接前端的部分
-
-## 3.0 如何读接口文档？
-
-### 3.0.1 Go 中的 HTTP 
-
-1. #### Web 服务器，启动！
-
-```Go
-http.HandleFunc("/", func(w http.ResponseWriter, r *http.Request) {
-    // 你可以在这里通过 http.ServeFile(w, r, "./example/index.html")改变启动的 Url
-    })
-http.ListenAndServe(":8080", nil) // 此处可以根据你前端的设置改变 port
-```
-
-1. #### **响应处理**
-
-   1. 设置响应头
-
-   > 关于什么是响应头，这是一个 HTTP 协议中的概念，建议回看相关内训文档
-
-   ```Go
-   w.Header().Set("Content-Type", "application/json")
-   w.WriteHeader(http.StatusOK)
-   json.NewEncoder(w).Encode(responseData)
-   ```
-
-   1. 响应
-
-      1. GET 请求处理
-
-      2. ```Go
-         func handleGetExample(w http.ResponseWriter, r *http.Request) {
-             // 获取并验证查询参数
-             example, err := strconv.Atoi(r.URL.Query().Get("page"))
-             if err != nil || example < 1 {
-                 example = 1 // 处理输入的数据
-             }
-         
-             // 从数据库中获取需要的值
-             // 处理输出的数据
-             
-             // 构造响应
-             response := map[string]interface{}{
-                 "code":    0,
-                 "message": "success",
-                 "data": map[string]interface{}{
-                     "total":   len(results),
-                     "items":   results,
-                 },
-             }
-         
-             // 返回JSON
-             w.Header().Set("Content-Type", "application/json")
-             // 处理报错
-             if err := json.NewEncoder(w).Encode(response); err != nil {
-                 http.Error(w, "JSON编码失败", http.StatusInternalServerError)
-             }
-         }
-         ```
-
-      3. POST请求处理
-
-      4. ```Go
-         func handlePostExample(w http.ResponseWriter, r *http.Request) {
-             // 解析请求体
-             var requestData struct {
-                 Field1 string `json:"field1"` // 对应前端字段
-                 Field2 int    `json:"field2"`
-             }
-             // 处理报错
-             if err := json.NewDecoder(r.Body).Decode(&requestData); err != nil {
-                 http.Error(w, "无效的请求格式", http.StatusBadRequest)
-                 return
-             }
-         
-             // 处理输入的数据
-             // 从数据库中获取需要的值 / 向数据库存入特定值
-             // 处理输出的数据
-         
-             // 构造响应
-             response := map[string]interface{}{
-                 "code":    0,
-                 "message": "创建成功",
-                 "data":    newRecord,
-             }
-         
-             // 返回JSON
-             w.Header().Set("Content-Type", "application/json")
-             w.WriteHeader(http.StatusCreated)
-             // 处理报错
-             if err := json.NewEncoder(w).Encode(response); err != nil {
-                 http.Error(w, "JSON编码失败", http.StatusInternalServerError)
-             }
-         }
-         ```
-
-1. #### 路由管理与 Cors 跨域访问
-
-当浏览器（如前端应用）从一个域名（如 `http://localhost:5432`）向另一个域名（如 `http://localhost:8080`）的后端发起请求时，浏览器会因 **同源策略（Same-Origin Policy）** 默认阻止跨域请求。此时需要后端明确声明允许跨域访问的规则。
-
-1. **允许跨域来源**
-
-   1. ```Go
-      w.Header().Set("Access-Control-Allow-Origin", "*")
-      // 此次允许任意域名（*）访问资源
-      // 生产环境建议替换为具体域名（如 http://localhost：8080）
-      ```
-
-2. 划定**允许的HTTP方法**  
-
-   1. ```Go
-      w.Header().Set("Access-Control-Allow-Methods", "GET, POST, OPTIONS")
-      ```
-
-我们只用到 PUT 和 POST，那么这个 OPTIONS 是什么、是为什么要加的呢？ 我们将这个问题作为一个思考题，我希望你可以得出理论层面的答案，并在 F12开发者工具 的 网络Network 工具找到佐证。
-
-1. **相关响应头设置**
-
-   1. ```Go
-      // 允许的请求头
-      w.Header().Set("Access-Control-Allow-Headers", "Content-Type, Authorization")
-      // 允许客户端携带 Content-Type（数据类型）和 Authorization（身份凭证）等自定义头。
-      
-      // 处理 OPTIONS
-      if r.Method == "OPTIONS" {
-          // w.WriteHeader(http.StatusNoContent) 这里加一句可以设置状态码 204 No Content
-          return
-      }
-      // 直接响应浏览器的预检请求（不触发业务逻辑），返回上述CORS头。
-      
-      // 附加项：安全性提升
-      w.Header().Set("X-Content-Type-Options", "nosniff")
-      // 禁止浏览器猜测响应内容类型，防止MIME类型混淆攻击。
-      ```
-
-1. #### http.Error
-
-相信你在阅读 **响应** 部分的代码范例后一定注意到了新的处理报错方法：
-
-```Go
-if err := json.NewEncoder(w).Encode(response); err != nil {
-        http.Error(w, "JSON编码失败", http.StatusInternalServerError)
-    }
-}
-```
-
-其中，http.Error 是调试 http 部分时重要的调试输出工具。它会将 Error 反映到网页 F12开发者工具 的 控制台console 中，将成为你在调试 HTTP 部分时不可或缺的得力助手。栗子：
-
-![img](https://xn4zlkzg4p.feishu.cn/space/api/box/stream/download/asynccode/?code=MzI0ZmE5MzczYzE0YmU3YWZjODg5YWYwNmIzYTEwOGFfYkFQN2IyR1BPaVlZczZOTGI2SXhZVkhIV2sxQThUZkZfVG9rZW46T2dLdWJEanNQb3NOdXR4VXVaOGNBODN0bnhiXzE3NTA3NDM1NTg6MTc1MDc0NzE1OF9WNA)
-
-### 3.0.2 接口文档
-
-请复习 [API的制定 ](https://xn4zlkzg4p.feishu.cn/wiki/NsgMw36lVi8xvmkHRXmc7Kuincd)，虽然文档中大部分的内容在讲前端如何处理，但其实后端与前端只有少许语法上的不同。
-
-其中，URL 和 method 都易于理解；
-
-Request 决定了你该如何处理输入的数据。举个栗子：为了使格式清晰、操作便利，你可以针对 request 结构定义 struct
-
-```Go
-var input struct {
-        Name    string `json:"name"`
-        Content string `json:"content"`
-    }
-```
-
-Response 决定了你的返回值的结构，进一步甚至决定了你的数据库应该如何建表（是的，后端就是这样一个两头都要顾的东西）
-
-```Go
-// 例如你可以建一个 comment 结构
-type Comment struct {
-    ID      int    `json:"id" gorm:"primaryKey;autoIncrement"`
-    Name    string `json:"name"`
-    Content string `json:"content"`
-}
-// 一方面，它被用在数据库中
-db.AutoMigrate(&Comment{})
-// 另一方面，它被用于回复某个 POST 请求
-...
-    resp := Response{
-        Code: 0,
-        Msg:  "success",
-        Data: comment,
-    }
-...
-```
-
-小Tip：入门项目中的 删除评论 功能使用的 method 是 POST 而非 DELETE
-
-## 3.1 model.go
-
-### 3.1.1 作用
-
-定义数据模型，将项目用到的所有 struct 放在一个文件里，便于查找删改：
-
-- 面向数据库：定义适合存储数据的结构 struct
-- 面向前端：定义 response 中的统一格式，方便返回数据
-- 根据需求灵活定义
-  -  eg：如果 config 比较复杂，也可以定义一个 config 的 struct
-
-### 3.1.2 涉及知识点
-
--  结构体标签（Struct Tags）
-
-指导序列化/反序列化、数据库映射等操作。
-
-```Go
-type User struct {
-    Name string `json:"name" db:"user_name"`
-    // 这段 就是标签
-    // 字段名 → JSON键名"name"，数据库列名"user_name"
-}
-```
-
-- 进阶阅读：5.2 Tag和序列化
-
-- golang 的 结构体struct 和 接口interface 和（蹩脚的）方法func
-
-> 没有class的golang，乐色
-
-1. 结构体 Struct：数据 + 方法的组合 class的代餐
-
-   1. ```Go
-      // 定义结构体
-      type User struct {
-          ID   int    `json:"id"`
-          Name string `json:"name"`
-      }
-      // 定义方法（值接收器）
-      func (u User) GetName() string {
-          return u.Name
-      }
-      // 定义方法（指针接收器）
-      func (u *User) UpdateName(name string) {
-          u.Name = name // 修改原对象
-      }
-      ```
-
-2. 接口 Interface
-
-> 鸭子类型： “如果它走起路来像鸭子、叫起来也像鸭子，那么它就是鸭子”
-
-如果一个对象看起来很像某类型，那么它就可以被视为该类型。
-
-```Go
-// 定义接口
-type Speaker interface {
-    Speak() string
-}
-
-// 结构体自动实现接口
-type Dog struct{}
-func (d Dog) Speak() string {
-    return "Woof!"
-}
-// 使用接口
-func MakeSound(s Speaker) {
-    fmt.Println(s.Speak())
-}
-// 调用
-dog := Dog{}
-MakeSound(dog) // 输出 "Woof!"
-```
-
-## 3.2 server.go
-
-### 3.2.1 作用
-
-- HTTP服务：在这里你需要给前端的每一个请求功能写一个对应的响应。
-  - 具体流程：HTTP 获取请求 --> ORM 操作取出数据 --> HTTP 响应返回数据
-- 路由配置：包含设置响应头和设置跨域访问两个步骤
-
-### 3.2.2 涉及知识点
-
-- 复习并使用 Go 语言的 ORM 
-- 复习并使用 Go 语言的 HTTP
-- 基础语法：`if` `for`  --> 自行查阅官网
-  - `if err:=DoSth();err!=nil {}`
-  - `for index,item := range list/map/channel {}`
-    - **非引用类型的item在循环内删改无效**
-- 基础语法：`array[N]` `slice[]` `map[KEY]VALUE`
-  - 数组`array[N]` ：长度固定
-  - 切片`slice[]` ：动态数组
-  - 映射`map[KEY]VALUE` ：无序键值对
-  - make(T)的使用方法
-    - 创建切片（带长度）
-    - 创建映射（带初始容量
-    - 创建缓冲通道channel
-- `defer` `panic` `recover`
-  - `defer`: 延迟执行，常用defer进行close的工作
-  - `panic` `recover`: 处理致命错误
-  - 服务器在每个请求最外层默认包含了panic的处理503
-
-## 4.汇总与初始化
-
-## 4.1 main.go
-
-main.go 的内容一般非常短，你可以将它看作一个用来整合各大功能函数的优美文件。
-
-## 4.2 运行你的go项目
-
-| 命令           | 作用                         |
-| -------------- | ---------------------------- |
-| go run main.go | 直接运行代码                 |
-| go build       | 编译生成当前平台的可执行文件 |
-| go install     | 安装到 $GOPATH/bin           |
-| go clean -i    | 清理编译文件                 |
-
-## 5.Golang语法进阶
-
-**往下阅读进阶之前，复习以下上文涉及的内容：**
-
-- Go 基础语法：`package` `import` `func` `struct` `interfaceif` `forarray[N]` `slice[]` `map[KEY]VALUE` `defer` `panic` `recover`
-- GORM 使用
-- HTTP 使用
-
-## 5.1 值和引用
-
-阅读本小节时请：回看你的所有go程序，在尽可能多的 func 旁标注你使用的是值还是引用
-
-和众多语言一样，golang在传参和赋值的时候也有值和引用的区别
-
-- 值：数据复制一份；互不干扰
-- 引用：共用内存，修改会在其他地方同步
-
-在Golang中，只有`map`和`slice`是引用类型，（当然其他类型做引用也可以像C一样使用指针`*ptr`）
-
-【特别注意】golang有数组和slice的区别，数组是定长内存，是传值；slice是可变长度的，是传引用
-
-【一个坑】
-
-```Go
-func (obj Clazz) Method()
-func (obj *Clazz) Method()
-```
-
-其中第一个是值传递，不会修改调用者结构体本身 第二种才是对应典型的其他语言类方法
-
-## 5.2 Tag和序列化
-
-阅读本小节时请：打开你的 model.go 程序，尝试通过反引号语法为字段添加元数据，用于序列化/ORM映射
-
-【例】在看完例子后请在心里对自己解释一下中间两行代码在做什么
-
-```C++
-type User struct {
-      ID    int    `json:"id" gorm:"primaryKey"`
-      Name  string `json:"name" validate:"required"`
-  }
-```
-
-在Golang的序列化中，大量使用Tag，因此需要掌握，并学会合理使用
-
-【Tag原理】
-
-https://zhuanlan.zhihu.com/p/260642112
-
-【Json中的Tag】
-
-https://fivezh.github.io/2022/02/01/golang-json-tag/
-
-【SQL数据库ORM中的Tag】
-
-https://blog.csdn.net/weixin_40626064/article/details/119242905
-
-【用于序列化的注意事项】
-
-一定是大写首字母的Public字段才能被反射访问从而序列化！
-
-## 5.3 C、Java与Go的**结构体（struct）和接口（interface）**
-
-在C中，struct是多个数据的捆绑类型
-
-在Java中，没有struct，只有class；class描述了一类对象上的方法（函数）和属性（变量）
-
-在Golang（包括Rust）中，保留了C中struct的捆绑类型的语义，而运行在struct上增添方法调用
-
-因此，Golang实现的是一种极其简化的面向对象特性，基本不支持多态，也不能完善的实现继承；但是，Golang有如下特性
-
-- 接口（关键词叫Interface，实际上是Trait）
-- 虚假的类继承（继续匿名嵌套对象）
-
-```Go
-struct BaseClazz { 
-    some vars... 
-}
-struct ChildClazz {
-    BaseClazz
-    some vars...
-}
-
-func Test() {
-    base := BaseClazz{}
-    obj := ChildClazz{ 
-        BaseClazz: base, 
-        x: xx, y: yyy 
-        }
-    obj.SomeBaseClazzMethod()
-}
-```
-
-由于类是结构体实现的，在语法上可以随意拷贝
-
-但是需要注意在语义上是否可以拷贝，是否需要深拷贝的问题
-
-（深拷贝自行搜索含义   举个例子：链表不能浅拷贝）
-
-## 6.延伸阅读
-
-如果你准备好迎接更高更远更强的挑战，请阅读[Go: 更多的进阶阅读](https://xn4zlkzg4p.feishu.cn/wiki/IQi5w2GFri8xO7kfyXHc27fondc)
-
-## 思考题
-
-【1】
-
-```Go
-struct JsonData {
-    GoField string `json:"json_field"`
-    CamelCase string
-    SomeTime time.Time
-}
-{ 
-    "json_field": "aaa", 
-    "camel_case": "bbb",
-    "SomeTime": "???"
-}
-```
-
-- 如何传递日期时间数据？
-- Golang的库（以Json为例），是如何基于字段名和Tag进行字段匹配的？

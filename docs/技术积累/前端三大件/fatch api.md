@@ -1,4 +1,4 @@
-## Fetch API
+# Fetch API
 
 Fetch API 是一种现代的、功能强大的网络请求工具，它允许你通过 JavaScript 异步地请求资源，而不需要使用传统的 XMLHttpRequest 对象。
 

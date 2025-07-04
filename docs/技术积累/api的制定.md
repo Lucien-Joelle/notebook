@@ -15,11 +15,11 @@ API（Application Programming Interface，应用程序编程接口）是前端�
 - **Interface（接口）：可以类比为银行中的窗口，不用接口对应不同的服务窗口。**
 - **Format（格式）：两个端之间传输的介质，比如** **JSON/XML**
 
-# 2 API的制定和规范
+## 2 API的制定和规范
 
 > `https://api.abc.com/PROG/user/get` 为例
 
-## 2.1 URL 的构成
+### 2.1 URL 的构成
 
 - `https://api.abc.com/PROG/` 是基础前缀，拆分如下：
   - `https://`：安全协议（一般使用 HTTPS）
@@ -32,7 +32,7 @@ API（Application Programming Interface，应用程序编程接口）是前端�
     - `create-react-app` 需要注册路由
     - `vite` 通常无需额外注册路由
 
-## 2.2 HTTP 方法简介
+### 2.2 HTTP 方法简介
 
 >HTTP 方法（HTTP Methods），有时也称为 HTTP 动词（HTTP Verbs），是客户端（例如网页浏览器）向服务器发起请求时，**指定对目标资源（例如一个网页、一张图片、一个 API 端点）期望执行的操作类型**。
 
@@ -44,7 +44,7 @@ API（Application Programming Interface，应用程序编程接口）是前端�
 | DELETE | 删除资源                 |
 | HEAD   | 获取响应头，不返回内容体 |
 
-## 2.3 Get方法
+### 2.3 Get方法
 
 get通常采用的传参方式有查询参数（字符串、参数数组、参数对象）、路径参数（url参数），一般查询字符串最为常见和通用
 
@@ -71,13 +71,13 @@ get通常采用的传参方式有查询参数（字符串、参数数组、参�
 
 > 不推荐
 
-## 2.4 Post方法
+### 2.4 Post方法
 
 post通常采用的传参方式有json数据、表单数据和文件上传，一般以json传参为主。
 
 下面是一个以json数据作为传参方法的post函数，其中Content-Type是传参方式，即application/json。相应的，表单为application/x-www-form-urlencoded，文件为multipart/form-data。
 
-# 3 开发者工具简介
+## 3 开发者工具简介
 
 在前端中，使用较多的功能有Elements（元素）、Console（控制台）、Network（网络）、Application（应用）。
 
@@ -95,6 +95,6 @@ post通常采用的传参方式有json数据、表单数据和文件上传，一
 - Application
   - 查看和管理存储在本地存储、会话存储、cookies存储中的数据
 
-# 4 **Apifox**
+## 4 **Apifox**
 
 简化api的设计

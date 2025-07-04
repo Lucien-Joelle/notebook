@@ -263,8 +263,6 @@ export default ProductList;
 
 
 
-## 2 从0开始
-
 ## 2.1 使用 create-react-app 快速构建 React 开发环境
 
 React 提供了一个官方工具 Create React App，用于快速搭建 React 项目。

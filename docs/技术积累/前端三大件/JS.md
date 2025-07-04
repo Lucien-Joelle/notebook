@@ -492,7 +492,7 @@ if (Object.create === undefined){ // 如果存在则不覆盖
 }
 ```
 
-let 值可以修改，const值不可以修改。const声明数组的时候可以改变·
+let 值可以修改，const值不可以修改。const声明数组的时候可以改变
 
 
 
@@ -500,15 +500,5 @@ let 值可以修改，const值不可以修改。const声明数组的时候可以
 
 
 
-## 2 从服务器获取数据
 
-网页由 HTML 页面和（通常也有）各种其他文件组成，例如样式表、脚本和图像。Web 加载页面的基本模型为：你的浏览器向服务器发起一个或多个 HTTP 请求以获取显示网页所需的文件，然后服务器响应请求的文件。如果你访问另一个页面，浏览器会请求新的文件，服务器则会响应这些请求。
-
-如果更新界面的时候大部分的数据不会改变的话，我们最好不是更新整个页面，而是修改页面的部分内容。
-
-因此，浏览器更新的时候，只是更新页面所需要的数据。
-
-这里主要的 API 是 [Fetch API](https://developer.mozilla.org/zh-CN/docs/Web/API/Fetch_API)。它允许页面中运行的 JavaScript 向服务器发起 [HTTP](https://developer.mozilla.org/zh-CN/docs/Web/HTTP) 请求来获取特定的资源。当服务器提供了这些资源时，JavaScript 可以使用这些数据更新页面（通常是通过使用 [DOM 操作 API](https://developer.mozilla.org/zh-CN/docs/Learn_web_development/Core/Scripting/DOM_scripting)）。请求的数据通常是 [JSON](https://developer.mozilla.org/zh-CN/docs/Learn_web_development/Core/Scripting/JSON)，这是一种很好的传输结构化的格式，但也可以是 HTML 或纯文本。
-
-## 2.1 Fetch API
 
